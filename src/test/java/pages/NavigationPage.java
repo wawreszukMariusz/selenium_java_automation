@@ -9,55 +9,55 @@ import org.testng.Assert;
 public class NavigationPage {
 
     @FindBy(xpath = "//a[@href='http://opencart.abstracta.us:80/index.php?route=common/home']")
-    private WebElement logo;
+    public WebElement logo;
 
     @FindBy(id = "search")
-    private WebElement searchInput;
+    public WebElement searchInput;
 
     @FindBy(className = "input-group-btn")
-    private WebElement searchSubmitButton;
+    public WebElement searchSubmitButton;
 
     @FindBy(id = "cart")
-    private WebElement shoppingBasketListButton;
+    public WebElement shoppingBasketListButton;
 
-    @FindBy(xpath = "//span[text()='Currency'']")
-    private WebElement changeCurrencyButton;
+    @FindBy(xpath = "//span[text()='Currency']")
+    public WebElement changeCurrencyButton;
 
     @FindBy(name = "EUR")
-    private WebElement changeToEuroCurrencyButton;
+    public WebElement changeToEuroCurrencyButton;
 
     @FindBy(name = "GBP")
-    private WebElement changeToPoundCurrencyButton;
+    public WebElement changeToPoundCurrencyButton;
 
     @FindBy(name = "USD")
-    private WebElement changeToDollarCurrencyButton;
+    public WebElement changeToDollarCurrencyButton;
 
     @FindBy(className = "fa-phone")
-    private WebElement phoneContactButton;
+    public WebElement phoneContactButton;
 
     @FindBy(xpath = "//span[text()='123456789']")
-    private WebElement phoneNumberSpan;
+    public WebElement phoneNumberSpan;
 
     @FindBy(className = "fa-user")
-    private WebElement myAccountButton;
+    public WebElement myAccountButton;
 
     @FindBy(xpath = "//a[text()='Register']")
-    private WebElement registerDropDownButton;
+    public WebElement registerDropDownButton;
 
     @FindBy(xpath = "//a[text()='Login']")
-    private WebElement loginDropDownButton;
+    public WebElement loginDropDownButton;
 
     @FindBy(className = "fa-heart")
-    private WebElement wishListButton;
+    public WebElement wishListButton;
 
     @FindBy(className = "fa-shopping-cart")
-    private WebElement shoppingBasketButton;
+    public WebElement shoppingBasketButton;
 
     @FindBy(className = "fa-share")
-    private WebElement checkoutButton;
+    public WebElement checkoutButton;
 
     @FindBy(xpath = "//ul[@class='dropdown-menu pull-right']//p")
-    private WebElement shoppingBasketEmptyInfo;
+    public WebElement shoppingBasketEmptyInfo;
 
 
     public NavigationPage(WebDriver driver){
@@ -65,7 +65,17 @@ public class NavigationPage {
     }
 
     public void pageDisplayed(){
-        Assert.assertTrue();
+        Assert.assertTrue(logo.isDisplayed());
+        Assert.assertTrue(searchInput.isDisplayed());
+        Assert.assertTrue(searchSubmitButton.isDisplayed());
+        Assert.assertTrue(shoppingBasketListButton.isDisplayed());
+        Assert.assertTrue(changeCurrencyButton.isDisplayed());
+        Assert.assertTrue(phoneContactButton.isDisplayed());
+        Assert.assertTrue(phoneNumberSpan.isDisplayed());
+        Assert.assertTrue(myAccountButton.isDisplayed());
+        Assert.assertTrue(wishListButton.isDisplayed());
+        Assert.assertTrue(shoppingBasketButton.isDisplayed());
+        Assert.assertTrue(checkoutButton.isDisplayed());
     }
 
 }

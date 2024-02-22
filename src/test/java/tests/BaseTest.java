@@ -3,13 +3,11 @@ package tests;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.*;
 import utils.DriverFactory;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.time.LocalDate;
 
 public class BaseTest {
@@ -34,6 +32,7 @@ public class BaseTest {
             driver = DriverFactory.getDriver();
             driver.manage().window().maximize();
             driver.get("https://opencart.abstracta.us/index.php?route=common/home");
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         }
 
         @AfterMethod

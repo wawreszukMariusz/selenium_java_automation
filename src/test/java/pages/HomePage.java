@@ -4,53 +4,133 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import java.util.List;
 
 public class HomePage {
 
     @FindBy(id = "slideshow0")
-    private WebElement slideShow;
+    public WebElement slideShow;
 
     @FindBy(className = "swiper-button-next")
-    private WebElement slideShowNextButton;
+    public WebElement slideShowNextButton;
 
     @FindBy(className = "swiper-button-prev")
-    private WebElement slideShowPrevButton;
+    public WebElement slideShowPrevButton;
 
     @FindBy(xpath = "//h3[text()='Featured']")
-    private WebElement featuredHeader;
+    public WebElement featuredHeader;
 
-    @FindBy(className = "product-layout")
-    private List<WebElement> productList;
+    @FindBy(className = "product-thumb")
+    public List<WebElement> productList;
 
     @FindBy(className = "caption")
-    private List<WebElement> productDesc;
+    public List<WebElement> productDesc;
 
-    @FindBy(className = "fa fa-shopping-cart")
-    private List<WebElement> productAddToCart;
+    @FindBy(className = "fa-shopping-cart")
+    public List<WebElement> productAddToCart;
 
-    @FindBy(className = "fa fa-heart")
-    private List<WebElement> productAddToWishList;
+    @FindBy(className = "fa-heart")
+    public List<WebElement> productAddToWishList;
 
-    @FindBy(className = "fa fa-exchange")
-    private List<WebElement> productCompareProducts;
+    @FindBy(className = "fa-exchange")
+    public List<WebElement> productCompareProducts;
 
     @FindBy(className = "price")
-    private List<WebElement> productPrice;
+    public List<WebElement> productPrice;
 
     @FindBy(className = "price-tax")
-    private List<WebElement> productTaxPrice;
+    public List<WebElement> productTaxPrice;
 
     @FindBy(className = "carousel0")
-    private WebElement featuredCompaniesSection;
+    public WebElement featuredCompaniesSection;
 
     @FindBy(xpath = "//div[@id='carousel0']/div/div")
-    private List<WebElement> singleFeaturedCompany;
+    public List<WebElement> singleFeaturedCompany;
 
+    @FindBy(xpath = "//a[@href='http://opencart.abstracta.us:80/index.php?route=common/home']")
+    public WebElement logo;
+
+    @FindBy(id = "search")
+    public WebElement searchInput;
+
+    @FindBy(className = "input-group-btn")
+    public WebElement searchSubmitButton;
+
+    @FindBy(id = "cart")
+    public WebElement shoppingBasketListButton;
+
+    @FindBy(xpath = "//span[text()='Currency']")
+    public WebElement changeCurrencyButton;
+
+    @FindBy(name = "EUR")
+    public WebElement changeToEuroCurrencyButton;
+
+    @FindBy(name = "GBP")
+    public WebElement changeToPoundCurrencyButton;
+
+    @FindBy(name = "USD")
+    public WebElement changeToDollarCurrencyButton;
+
+    @FindBy(className = "fa-phone")
+    public WebElement phoneContactButton;
+
+    @FindBy(xpath = "//span[text()='123456789']")
+    public WebElement phoneNumberSpan;
+
+    @FindBy(className = "fa-user")
+    public WebElement myAccountButton;
+
+    @FindBy(xpath = "//a[text()='Register']")
+    public WebElement registerDropDownButton;
+
+    @FindBy(xpath = "//a[text()='Login']")
+    public WebElement loginDropDownButton;
+
+    @FindBy(className = "fa-heart")
+    public WebElement wishListButton;
+
+    @FindBy(className = "fa-shopping-cart")
+    public WebElement shoppingBasketButton;
+
+    @FindBy(className = "fa-share")
+    public WebElement checkoutButton;
+
+    @FindBy(xpath = "//ul[@class='dropdown-menu pull-right']//p")
+    public WebElement shoppingBasketEmptyInfo;
 
     public HomePage(WebDriver driver){
         PageFactory.initElements(driver, this);
+    }
+
+    public void navigationDisplayed(){
+        Assert.assertTrue(logo.isDisplayed());
+        Assert.assertTrue(searchInput.isDisplayed());
+        Assert.assertTrue(searchSubmitButton.isDisplayed());
+        Assert.assertTrue(shoppingBasketListButton.isDisplayed());
+        Assert.assertTrue(changeCurrencyButton.isDisplayed());
+        Assert.assertTrue(phoneContactButton.isDisplayed());
+        Assert.assertTrue(phoneNumberSpan.isDisplayed());
+        Assert.assertTrue(myAccountButton.isDisplayed());
+        Assert.assertTrue(wishListButton.isDisplayed());
+        Assert.assertTrue(shoppingBasketButton.isDisplayed());
+        Assert.assertTrue(checkoutButton.isDisplayed());
+    }
+
+    public void pageDisplayed(){
+        Assert.assertTrue(this.slideShow.isDisplayed());
+        Assert.assertTrue(this.featuredHeader.isDisplayed());
+        Assert.assertTrue(this.productList.get(0).isDisplayed());
+        Assert.assertTrue(this.productDesc.get(0).isDisplayed());
+        Assert.assertTrue(this.productAddToCart.get(0).isDisplayed());
+        Assert.assertTrue(this.productAddToWishList.get(0).isDisplayed());
+        Assert.assertTrue(this.productCompareProducts.get(0).isDisplayed());
+        Assert.assertTrue(this.productPrice.get(0).isDisplayed());
+        Assert.assertTrue(this.productTaxPrice.get(0).isDisplayed());
+        Assert.assertTrue(this.featuredCompaniesSection.isDisplayed());
+        //Assert.assertTrue(this.singleFeaturedCompany.get(0).isDisplayed());
+        this.navigationDisplayed();
     }
 
 }
