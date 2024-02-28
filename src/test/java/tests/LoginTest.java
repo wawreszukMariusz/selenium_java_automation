@@ -1,14 +1,18 @@
 package tests;
 
-import org.apache.poi.ss.formula.functions.Na;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pages.*;
-import utils.DriverFactory;
+import utils.ExtentReport;
+import utils.PropertiesLoader;
 
-import java.time.Duration;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 public class LoginTest extends BaseTest{
 
@@ -23,9 +27,12 @@ public class LoginTest extends BaseTest{
     @Test
     public void properLoginTest(){
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.emailInput.sendKeys("pifyusomla@gufum.com");
+        loginPage.emailInput.sendKeys(PropertiesLoader.loadProperty("email"));
+        ExtentReport.test.pass("Clicked");
         loginPage.passwordInput.sendKeys("Pass123@");
+        ExtentReport.test.pass("Clicked");
         loginPage.submitButton.click();
+        ExtentReport.test.pass("Clicked");
 
         AccountPage accountPage = new AccountPage(driver);
         accountPage.pageDisplayed();

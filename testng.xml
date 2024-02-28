@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <listeners>
+    <listener class-name="utils.Listeners"/>
+    </listeners>
+    <test verbose="2" preserve-order="true" name="C:/github-repos/selenium_java_automation">
+        <classes>
+            <class name="tests.LoginTest">
+                <methods>
+                    <include name="properLoginTest"/>
+                    <include name="incorrectLoginDataTest"/>
+                    <include name="incorrectEmailTest"/>
+                    <include name="sendingEmptyFormTest"/>
+                    <include name="properRememberingForgottenPasswordTest"/>
+                    <include name="wrongRememberingForgottenPasswordTest"/>
+                </methods>
+            </class>
+            <class name="tests.RegisterTest">
+                <methods>
+                    <include name="registerTest"/>
+                    <include name="sendEmptyRegisterFormTest"/>
+                    <include name="fillRegisterFormWithExistingEmail"/>
+                </methods></class><class name="tests.TestReport">
+            <methods>
+                <include name="testReport"/>
+            </methods>
+        </class>
+        </classes>
+    </test>
+</suite>

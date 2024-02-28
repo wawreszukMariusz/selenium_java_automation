@@ -1,32 +1,24 @@
 package tests;
 
 import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
+import org.testng.ITestResult;
 import org.testng.annotations.*;
 import utils.DriverFactory;
+import utils.ExtentReport;
 
+import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.time.Duration;
 import java.time.LocalDate;
 
 public class BaseTest {
         protected WebDriver driver;
-        protected static ExtentHtmlReporter htmlReporter;
-        protected static ExtentReports extentReports;
-        @BeforeSuite
-        public void beforeSuite() {
-            htmlReporter = new ExtentHtmlReporter("report_"+ LocalDate.now()+".html");
-            extentReports =new ExtentReports();
-            extentReports.attachReporter(htmlReporter);
-        }
-
-        @AfterSuite
-        public void afterSuite(){
-            htmlReporter.flush();
-            extentReports.flush();
-        }
-
         @BeforeMethod
         public void setUpTest() throws IOException {
             driver = DriverFactory.getDriver();
@@ -36,8 +28,8 @@ public class BaseTest {
         }
 
         @AfterMethod
-        public void tearDown(){
-            driver.quit();
+        public void tearDown(ITestResult result){
+           // driver.quit();
         }
     }
 
