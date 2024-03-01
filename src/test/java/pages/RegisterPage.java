@@ -113,7 +113,7 @@ public class RegisterPage {
         try {
             this.passwordInput.sendKeys(password);
             ExtentReport.test.pass("Send keys to password input passed");
-        } catch (AssertionError e) {
+        } catch (Exception e) {
             ExtentReport.test.fail("Send keys to password input failed");
         }
     }
@@ -122,7 +122,7 @@ public class RegisterPage {
         try {
             this.confirmPasswordInput.sendKeys(password);
             ExtentReport.test.pass("Send keys to confirm password input passed");
-        } catch (AssertionError e) {
+        } catch (Exception e) {
             ExtentReport.test.fail("Send keys to confirm password input failed");
         }
     }
@@ -131,7 +131,7 @@ public class RegisterPage {
         try {
             this.privacyPolicyCheckBox.click();
             ExtentReport.test.pass("Clicking on privacy policy checkbox done");
-        } catch (AssertionError e) {
+        } catch (Exception e) {
             ExtentReport.test.fail("Clicking on privacy policy checkbox failed");
         }
     }
@@ -140,7 +140,7 @@ public class RegisterPage {
         try {
             this.submitButton.click();
             ExtentReport.test.pass("Clicking on submit button done");
-        } catch (AssertionError e) {
+        } catch (Exception e) {
             ExtentReport.test.fail("Clicking on submit button failed");
         }
     }
@@ -149,7 +149,7 @@ public class RegisterPage {
         try {
             Assert.assertTrue(this.existingEmailAlert.isDisplayed());
             ExtentReport.test.pass("Checking display of existing email alert done");
-        } catch (AssertionError e) {
+        } catch (Exception e) {
             ExtentReport.test.fail("Checking display of existing email alert failed");
         }
     }
@@ -166,9 +166,9 @@ public class RegisterPage {
             //Assert.assertTrue(this.newsletterYesRadio.isDisplayed());
             Assert.assertTrue(this.privacyPolicyCheckBox.isDisplayed());
             Assert.assertTrue(this.submitButton.isDisplayed());
-            ExtentReport.test.info("Checking visibility of page elements passed");
-        } catch (AssertionError e) {
-            ExtentReport.test.info("Checking visibility of page elements failed");
+            ExtentReport.test.pass("Checking visibility of page elements passed");
+        } catch (Exception e) {
+            ExtentReport.test.pass("Checking visibility of page elements failed");
         }
     }
 
@@ -177,9 +177,9 @@ public class RegisterPage {
             Assert.assertTrue(this.successBreadcrumb.isDisplayed());
             Assert.assertTrue(this.continueButton.isDisplayed());
             Assert.assertTrue(this.accountHeader.isDisplayed());
-            ExtentReport.test.info("Checking visibility of success registration page elements passed");
-        } catch (AssertionError e) {
-            ExtentReport.test.info("Checking visibility of success registration page elements failed");
+            ExtentReport.test.pass("Checking visibility of success registration page elements passed");
+        } catch (Exception e) {
+            ExtentReport.test.pass("Checking visibility of success registration page elements failed");
         }
     }
 

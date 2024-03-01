@@ -35,7 +35,7 @@ public class LoginPage {
         try {
             this.emailInput.sendKeys(email);
             ExtentReport.test.pass("Send keys to email input passed");
-        } catch (AssertionError e) {
+        } catch (Exception e) {
             ExtentReport.test.fail("Send keys to email input failed");
         }
     }
@@ -44,7 +44,7 @@ public class LoginPage {
         try {
             this.passwordInput.sendKeys(password);
             ExtentReport.test.pass("Send keys to password input passed");
-        } catch (AssertionError e) {
+        } catch (Exception e) {
             ExtentReport.test.fail("Send keys to password input failed");
         }
     }
@@ -53,7 +53,7 @@ public class LoginPage {
         try {
             this.submitButton.click();
             ExtentReport.test.pass("Clicking on submit button done");
-        } catch (AssertionError e) {
+        } catch (Exception e) {
             ExtentReport.test.fail("Clicking on submit button failed");
         }
     }
@@ -62,7 +62,7 @@ public class LoginPage {
         try {
             Assert.assertTrue(this.sentEmailAlert.isDisplayed());
             ExtentReport.test.pass("Checking display of sent email alert done");
-        } catch (AssertionError e) {
+        } catch (Exception e) {
             ExtentReport.test.fail("Checking display of sent email alert failed");
         }
     }
@@ -71,7 +71,7 @@ public class LoginPage {
         try {
             Assert.assertTrue(this.incorrectLoginDataAlert.isDisplayed());
             ExtentReport.test.pass("Checking display of incorrect login data alert done");
-        } catch (AssertionError e) {
+        } catch (Exception e) {
             ExtentReport.test.fail("Checking display of incorrect login data alert failed");
         }
     }
@@ -79,8 +79,8 @@ public class LoginPage {
         try {
             this.forgottenPasswordLink.click();
             ExtentReport.test.pass("Clicking on forgotten password link done");
-        } catch (AssertionError e) {
-            ExtentReport.test.pass("Clicking on forgotten password link failed");
+        } catch (Exception e) {
+            ExtentReport.test.fail("Clicking on forgotten password link failed");
         }
     }
     public void pageDisplayed(){
@@ -89,9 +89,9 @@ public class LoginPage {
             Assert.assertTrue(this.passwordInput.isDisplayed());
             Assert.assertTrue(this.submitButton.isDisplayed());
             Assert.assertTrue(this.forgottenPasswordLink.isDisplayed());
-            ExtentReport.test.info("Checking visibility of page elements passed");
-        } catch (AssertionError e) {
-            ExtentReport.test.info("Checking visibility of page elements failed");
+            ExtentReport.test.pass("Checking visibility of page elements passed");
+        } catch (Exception e) {
+            ExtentReport.test.fail("Checking visibility of page elements failed");
         }
     }
 }

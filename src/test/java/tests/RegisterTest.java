@@ -2,7 +2,6 @@ package tests;
 
 import org.testng.ITestResult;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.RegisterPage;
@@ -15,13 +14,13 @@ public class RegisterTest extends BaseTest{
     @BeforeMethod
     public void beforeTest(ITestResult result){
         ExtentReport.createTest(result.getMethod().getMethodName());
-        
+
         HomePage homePage = new HomePage(driver);
         homePage.pageDisplayed();
         homePage.clickMyAccountButton();
         homePage.clickRegisterDropDownButton();
 
-        email = "tester" + homePage.dateNow() + "@tester.com";
+        email = homePage.randomEmail();
     }
 
     @Test

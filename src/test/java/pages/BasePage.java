@@ -5,8 +5,8 @@ import java.time.format.DateTimeFormatter;
 
 public class BasePage {
 
-    public String dateNow(){
-        return LocalDateTime.now().format(DateTimeFormatter.ofPattern("ddMMyyyHHmmss"));
+    public String randomEmail(){
+        return "tester" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("ddMMyyyHHmmss")) + "@tester.com";
     }
 
 }

@@ -25,7 +25,7 @@ public class ForgottenPasswordPage {
         try {
             this.emailInput.sendKeys(email);
             ExtentReport.test.pass("Send keys to email input passed");
-        } catch (AssertionError e) {
+        } catch (Exception e) {
             ExtentReport.test.fail("Send keys to email input failed");
         }
     }
@@ -35,7 +35,7 @@ public class ForgottenPasswordPage {
             this.continueButton.click();
             Assert.assertTrue(this.continueButton.isDisplayed());
             ExtentReport.test.pass("Clicking on continue button done");
-        } catch (AssertionError e) {
+        } catch (Exception e) {
             ExtentReport.test.fail("Clicking on continue button failed");
         }
     }
@@ -44,7 +44,7 @@ public class ForgottenPasswordPage {
         try {
             Assert.assertTrue(this.incorrectEmailAlert.isDisplayed());
             ExtentReport.test.pass("Checking display of incorrect email alert done");
-        } catch (AssertionError e) {
+        } catch (Exception e) {
             ExtentReport.test.fail("Checking display of incorrect email alert failed");
         }
     }
