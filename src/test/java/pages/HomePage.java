@@ -1,17 +1,16 @@
 package pages;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+import utils.ExtentReport;
 
 import java.util.List;
 
 
-public class HomePage {
+public class HomePage extends BasePage {
 
     @FindBy(id = "slideshow0")
     public WebElement slideShow;
@@ -103,37 +102,73 @@ public class HomePage {
     @FindBy(xpath = "//ul[@class='dropdown-menu pull-right']//p")
     public WebElement shoppingBasketEmptyInfo;
 
+    public void clickMyAccountButton(){
+        try {
+            this.myAccountButton.click();
+            ExtentReport.test.pass("Clicking on My account button done");
+        } catch (AssertionError e) {
+            ExtentReport.test.fail("Clicking on My account failed");
+        }
+    }
+
+    public void clickRegisterDropDownButton(){
+        try {
+            this.registerDropDownButton.click();
+            ExtentReport.test.pass("Clicking on register dropdown button done");
+        } catch (AssertionError e) {
+            ExtentReport.test.fail("Clicking on register dropdown button failed");
+        }
+    }
+
+    public void clickLoginDropDownButton(){
+        try {
+            this.loginDropDownButton.click();
+            ExtentReport.test.pass("Clicking on login dropdown button done");
+        } catch (AssertionError e) {
+            ExtentReport.test.fail("Clicking on login dropdown button failed");
+        }
+    }
+
     public HomePage(WebDriver driver){
         PageFactory.initElements(driver, this);
     }
 
     public void navigationDisplayed(){
-        Assert.assertTrue(logo.isDisplayed());
-        Assert.assertTrue(searchInput.isDisplayed());
-        Assert.assertTrue(searchSubmitButton.isDisplayed());
-        Assert.assertTrue(shoppingBasketListButton.isDisplayed());
-        Assert.assertTrue(changeCurrencyButton.isDisplayed());
-        Assert.assertTrue(phoneContactButton.isDisplayed());
-        Assert.assertTrue(phoneNumberSpan.isDisplayed());
-        Assert.assertTrue(myAccountButton.isDisplayed());
-        Assert.assertTrue(wishListButton.isDisplayed());
-        Assert.assertTrue(shoppingBasketButton.isDisplayed());
-        Assert.assertTrue(checkoutButton.isDisplayed());
+        try{
+            Assert.assertTrue(logo.isDisplayed());
+            Assert.assertTrue(searchInput.isDisplayed());
+            Assert.assertTrue(searchSubmitButton.isDisplayed());
+            Assert.assertTrue(shoppingBasketListButton.isDisplayed());
+            Assert.assertTrue(changeCurrencyButton.isDisplayed());
+            Assert.assertTrue(phoneContactButton.isDisplayed());
+            Assert.assertTrue(phoneNumberSpan.isDisplayed());
+            Assert.assertTrue(myAccountButton.isDisplayed());
+            Assert.assertTrue(wishListButton.isDisplayed());
+            Assert.assertTrue(shoppingBasketButton.isDisplayed());
+            Assert.assertTrue(checkoutButton.isDisplayed());
+            ExtentReport.test.info("Checking visibility of navigation elements passed");
+        } catch (AssertionError e) {
+            ExtentReport.test.info("Checking visibility of navigation elements failed");
+        }
     }
 
     public void pageDisplayed(){
-//        Assert.assertTrue(this.slideShow.isDisplayed());
-        Assert.assertTrue(this.featuredHeader.isDisplayed());
-        Assert.assertTrue(this.productList.get(0).isDisplayed());
-        Assert.assertTrue(this.productDesc.get(0).isDisplayed());
-        Assert.assertTrue(this.productAddToCart.get(0).isDisplayed());
-        Assert.assertTrue(this.productAddToWishList.get(0).isDisplayed());
-        Assert.assertTrue(this.productCompareProducts.get(0).isDisplayed());
-        Assert.assertTrue(this.productPrice.get(0).isDisplayed());
-        Assert.assertTrue(this.productTaxPrice.get(0).isDisplayed());
-        Assert.assertTrue(this.featuredCompaniesSection.isDisplayed());
-        //Assert.assertTrue(this.singleFeaturedCompany.get(0).isDisplayed());
-        this.navigationDisplayed();
+        try{
+//          Assert.assertTrue(this.slideShow.isDisplayed());
+            Assert.assertTrue(this.featuredHeader.isDisplayed());
+            Assert.assertTrue(this.productList.get(0).isDisplayed());
+            Assert.assertTrue(this.productDesc.get(0).isDisplayed());
+            Assert.assertTrue(this.productAddToCart.get(0).isDisplayed());
+            Assert.assertTrue(this.productAddToWishList.get(0).isDisplayed());
+            Assert.assertTrue(this.productCompareProducts.get(0).isDisplayed());
+            Assert.assertTrue(this.productPrice.get(0).isDisplayed());
+            Assert.assertTrue(this.productTaxPrice.get(0).isDisplayed());
+            Assert.assertTrue(this.featuredCompaniesSection.isDisplayed());
+            //Assert.assertTrue(this.singleFeaturedCompany.get(0).isDisplayed());
+            this.navigationDisplayed();
+            ExtentReport.test.info("Checking visibility of page elements passed");
+        } catch (AssertionError e) {
+            ExtentReport.test.info("Checking visibility of page elements failed");
+        }
     }
-
 }

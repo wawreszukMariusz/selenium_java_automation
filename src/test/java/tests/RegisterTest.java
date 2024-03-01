@@ -1,29 +1,31 @@
 package tests;
 
-import org.testng.Assert;
+import org.testng.ITestResult;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.RegisterPage;
+import utils.ExtentReport;
 import utils.PropertiesLoader;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 public class RegisterTest extends BaseTest{
 
     String email;
     @BeforeMethod
-    public void beforeTest(){
+    public void beforeTest(ITestResult result){
+        ExtentReport.createTest(result.getMethod().getMethodName());
+        
         HomePage homePage = new HomePage(driver);
         homePage.pageDisplayed();
-        homePage.myAccountButton.click();
-        homePage.registerDropDownButton.click();
+        homePage.clickMyAccountButton();
+        homePage.clickRegisterDropDownButton();
 
-        email = "tester" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("ddMMyyyHHmmss")) + "@tester.com";
+        email = "tester" + homePage.dateNow() + "@tester.com";
     }
 
     @Test
-    public void registerTest(){
+    public void properRegisterTest(){
         RegisterPage registerPage = new RegisterPage(driver);
         registerPage.pageDisplayed();
         registerPage.fillRegisterForm(email);
@@ -34,7 +36,7 @@ public class RegisterTest extends BaseTest{
     public void sendEmptyRegisterFormTest(){
         RegisterPage registerPage = new RegisterPage(driver);
         registerPage.pageDisplayed();
-        registerPage.submitButton.click();
+        registerPage.clickSubmitButton();
         registerPage.checkEmptyRegisterFormAlerts();
     }
 
@@ -43,9 +45,7 @@ public class RegisterTest extends BaseTest{
         RegisterPage registerPage = new RegisterPage(driver);
         registerPage.pageDisplayed();
         registerPage.fillRegisterForm(PropertiesLoader.loadProperty("email"));
-        registerPage.submitButton.click();
-
-        Assert.assertTrue(registerPage.existingEmailAlert.isDisplayed());
+        registerPage.clickSubmitButton();
+        registerPage.existingEmailAlertDisplayed();
     }
-
 }

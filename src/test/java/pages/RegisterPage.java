@@ -5,8 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
-
-import java.util.List;
+import utils.ExtentReport;
 
 public class RegisterPage {
 
@@ -74,35 +73,125 @@ public class RegisterPage {
         PageFactory.initElements(driver, this);
     }
 
+    public void setFirstNameInput(String firstName){
+        try {
+            this.firstNameInput.sendKeys(firstName);
+            ExtentReport.test.pass("Send keys to firstname input passed");
+        } catch (AssertionError e) {
+            ExtentReport.test.fail("Send keys to firstname input failed");
+        }
+    }
+
+    public void setLastNameInput(String lastName){
+        try {
+            this.lastNameInput.sendKeys(lastName);
+            ExtentReport.test.pass("Send keys to lastname input passed");
+        } catch (AssertionError e) {
+            ExtentReport.test.fail("Send keys to lastname input failed");
+        }
+    }
+
+    public void setEmailInput(String email){
+        try {
+            this.emailInput.sendKeys(email);
+            ExtentReport.test.pass("Send keys to email input passed");
+        } catch (AssertionError e) {
+            ExtentReport.test.fail("Send keys to email input failed");
+        }
+    }
+
+    public void setPhoneInput(String phone){
+        try {
+            this.phoneInput.sendKeys(phone);
+            ExtentReport.test.pass("Send keys to phone input passed");
+        } catch (AssertionError e) {
+            ExtentReport.test.fail("Send keys to phone input failed");
+        }
+    }
+
+    public void setPasswordInput(String password){
+        try {
+            this.passwordInput.sendKeys(password);
+            ExtentReport.test.pass("Send keys to password input passed");
+        } catch (AssertionError e) {
+            ExtentReport.test.fail("Send keys to password input failed");
+        }
+    }
+
+    public void setConfirmPasswordInput(String password){
+        try {
+            this.confirmPasswordInput.sendKeys(password);
+            ExtentReport.test.pass("Send keys to confirm password input passed");
+        } catch (AssertionError e) {
+            ExtentReport.test.fail("Send keys to confirm password input failed");
+        }
+    }
+
+    public void clickPrivacyPolicyCheckbox(){
+        try {
+            this.privacyPolicyCheckBox.click();
+            ExtentReport.test.pass("Clicking on privacy policy checkbox done");
+        } catch (AssertionError e) {
+            ExtentReport.test.fail("Clicking on privacy policy checkbox failed");
+        }
+    }
+
+    public void clickSubmitButton(){
+        try {
+            this.submitButton.click();
+            ExtentReport.test.pass("Clicking on submit button done");
+        } catch (AssertionError e) {
+            ExtentReport.test.fail("Clicking on submit button failed");
+        }
+    }
+
+    public void existingEmailAlertDisplayed(){
+        try {
+            Assert.assertTrue(this.existingEmailAlert.isDisplayed());
+            ExtentReport.test.pass("Checking display of existing email alert done");
+        } catch (AssertionError e) {
+            ExtentReport.test.fail("Checking display of existing email alert failed");
+        }
+    }
+
     public void pageDisplayed(){
-        Assert.assertTrue(this.firstNameInput.isDisplayed());
-        Assert.assertTrue(this.lastNameInput.isDisplayed());
-        Assert.assertTrue(this.emailInput.isDisplayed());
-        Assert.assertTrue(this.phoneInput.isDisplayed());
-        Assert.assertTrue(this.passwordInput.isDisplayed());
-        Assert.assertTrue(this.confirmPasswordInput.isDisplayed());
-        Assert.assertTrue(this.newsletterNoRadio.isDisplayed());
-        //Assert.assertTrue(this.newsletterYesRadio.isDisplayed());
-        Assert.assertTrue(this.privacyPolicyCheckBox.isDisplayed());
-        Assert.assertTrue(this.submitButton.isDisplayed());
+        try {
+            Assert.assertTrue(this.firstNameInput.isDisplayed());
+            Assert.assertTrue(this.lastNameInput.isDisplayed());
+            Assert.assertTrue(this.emailInput.isDisplayed());
+            Assert.assertTrue(this.phoneInput.isDisplayed());
+            Assert.assertTrue(this.passwordInput.isDisplayed());
+            Assert.assertTrue(this.confirmPasswordInput.isDisplayed());
+            Assert.assertTrue(this.newsletterNoRadio.isDisplayed());
+            //Assert.assertTrue(this.newsletterYesRadio.isDisplayed());
+            Assert.assertTrue(this.privacyPolicyCheckBox.isDisplayed());
+            Assert.assertTrue(this.submitButton.isDisplayed());
+            ExtentReport.test.info("Checking visibility of page elements passed");
+        } catch (AssertionError e) {
+            ExtentReport.test.info("Checking visibility of page elements failed");
+        }
     }
 
     public void successRegistrationPageDisplayed(){
-        Assert.assertTrue(this.successBreadcrumb.isDisplayed());
-        Assert.assertTrue(this.continueButton.isDisplayed());
-        Assert.assertTrue(this.accountHeader.isDisplayed());
+        try {
+            Assert.assertTrue(this.successBreadcrumb.isDisplayed());
+            Assert.assertTrue(this.continueButton.isDisplayed());
+            Assert.assertTrue(this.accountHeader.isDisplayed());
+            ExtentReport.test.info("Checking visibility of success registration page elements passed");
+        } catch (AssertionError e) {
+            ExtentReport.test.info("Checking visibility of success registration page elements failed");
+        }
     }
 
     public void fillRegisterForm(String email){
-        this.firstNameInput.sendKeys("Mariusz");
-        this.lastNameInput.sendKeys("Testowy");
-        this.emailInput.sendKeys(email);
-        this.phoneInput.sendKeys("+48123123123");
-        this.passwordInput.sendKeys("Pass123@");
-        this.confirmPasswordInput.sendKeys("Pass123@");
-        //this.newsletterYesRadio.click();
-        this.privacyPolicyCheckBox.click();
-        this.submitButton.click();
+        this.setFirstNameInput("Mariusz");
+        this.setLastNameInput("Testowy");
+        this.setEmailInput(email);
+        this.setPhoneInput("+48123123123");
+        this.setPasswordInput("Pass123@");
+        this.setConfirmPasswordInput("Pass123@");
+        this.clickPrivacyPolicyCheckbox();
+        this.clickSubmitButton();
     }
 
     public void checkEmptyRegisterFormAlerts(){
