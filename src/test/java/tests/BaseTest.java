@@ -25,7 +25,6 @@ public class BaseTest {
         public void beforeSuite(){
             ExtentReport.initReports();
         }
-
         @BeforeMethod
         public void setUpTest()   {
             try {
@@ -45,7 +44,7 @@ public class BaseTest {
 
         @AfterMethod
         public void tearDown(){
-           //driver.quit();
+           driver.quit();
         }
     }
 

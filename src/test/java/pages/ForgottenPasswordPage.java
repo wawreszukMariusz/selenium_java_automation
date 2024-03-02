@@ -24,9 +24,9 @@ public class ForgottenPasswordPage {
     public void setEmailInput(String email){
         try {
             this.emailInput.sendKeys(email);
-            ExtentReport.test.pass("Send keys to email input passed");
+            ExtentReport.pass("Send keys to email input passed");
         } catch (Exception e) {
-            ExtentReport.test.fail("Send keys to email input failed");
+            ExtentReport.fail("Send keys to email input failed");
         }
     }
 
@@ -34,18 +34,18 @@ public class ForgottenPasswordPage {
         try {
             this.continueButton.click();
             Assert.assertTrue(this.continueButton.isDisplayed());
-            ExtentReport.test.pass("Clicking on continue button done");
+            ExtentReport.pass("Clicking on continue button done");
         } catch (Exception e) {
-            ExtentReport.test.fail("Clicking on continue button failed");
+            ExtentReport.fail("Clicking on continue button failed");
         }
     }
 
     public void incorrectEmailAlertDisplayed(){
         try {
             Assert.assertTrue(this.incorrectEmailAlert.isDisplayed());
-            ExtentReport.test.pass("Checking display of incorrect email alert done");
+            ExtentReport.pass("Checking display of incorrect email alert done");
         } catch (Exception e) {
-            ExtentReport.test.fail("Checking display of incorrect email alert failed");
+            ExtentReport.fail("Checking display of incorrect email alert failed");
         }
     }
 }

@@ -76,81 +76,81 @@ public class RegisterPage {
     public void setFirstNameInput(String firstName){
         try {
             this.firstNameInput.sendKeys(firstName);
-            ExtentReport.test.pass("Send keys to firstname input passed");
+            ExtentReport.pass("Send keys to firstname input passed");
         } catch (AssertionError e) {
-            ExtentReport.test.fail("Send keys to firstname input failed");
+            ExtentReport.fail("Send keys to firstname input failed");
         }
     }
 
     public void setLastNameInput(String lastName){
         try {
             this.lastNameInput.sendKeys(lastName);
-            ExtentReport.test.pass("Send keys to lastname input passed");
+            ExtentReport.pass("Send keys to lastname input passed");
         } catch (AssertionError e) {
-            ExtentReport.test.fail("Send keys to lastname input failed");
+            ExtentReport.fail("Send keys to lastname input failed");
         }
     }
 
     public void setEmailInput(String email){
         try {
             this.emailInput.sendKeys(email);
-            ExtentReport.test.pass("Send keys to email input passed");
+            ExtentReport.pass("Send keys to email input passed");
         } catch (AssertionError e) {
-            ExtentReport.test.fail("Send keys to email input failed");
+            ExtentReport.fail("Send keys to email input failed");
         }
     }
 
     public void setPhoneInput(String phone){
         try {
             this.phoneInput.sendKeys(phone);
-            ExtentReport.test.pass("Send keys to phone input passed");
+            ExtentReport.pass("Send keys to phone input passed");
         } catch (AssertionError e) {
-            ExtentReport.test.fail("Send keys to phone input failed");
+            ExtentReport.fail("Send keys to phone input failed");
         }
     }
 
     public void setPasswordInput(String password){
         try {
             this.passwordInput.sendKeys(password);
-            ExtentReport.test.pass("Send keys to password input passed");
+            ExtentReport.pass("Send keys to password input passed");
         } catch (Exception e) {
-            ExtentReport.test.fail("Send keys to password input failed");
+            ExtentReport.fail("Send keys to password input failed");
         }
     }
 
     public void setConfirmPasswordInput(String password){
         try {
             this.confirmPasswordInput.sendKeys(password);
-            ExtentReport.test.pass("Send keys to confirm password input passed");
+            ExtentReport.pass("Send keys to confirm password input passed");
         } catch (Exception e) {
-            ExtentReport.test.fail("Send keys to confirm password input failed");
+            ExtentReport.fail("Send keys to confirm password input failed");
         }
     }
 
     public void clickPrivacyPolicyCheckbox(){
         try {
             this.privacyPolicyCheckBox.click();
-            ExtentReport.test.pass("Clicking on privacy policy checkbox done");
+            ExtentReport.pass("Clicking on privacy policy checkbox done");
         } catch (Exception e) {
-            ExtentReport.test.fail("Clicking on privacy policy checkbox failed");
+            ExtentReport.fail("Clicking on privacy policy checkbox failed");
         }
     }
 
     public void clickSubmitButton(){
         try {
             this.submitButton.click();
-            ExtentReport.test.pass("Clicking on submit button done");
+            ExtentReport.pass("Clicking on submit button done");
         } catch (Exception e) {
-            ExtentReport.test.fail("Clicking on submit button failed");
+            ExtentReport.fail("Clicking on submit button failed");
         }
     }
 
     public void existingEmailAlertDisplayed(){
         try {
             Assert.assertTrue(this.existingEmailAlert.isDisplayed());
-            ExtentReport.test.pass("Checking display of existing email alert done");
+            ExtentReport.pass("Checking display of existing email alert done");
         } catch (Exception e) {
-            ExtentReport.test.fail("Checking display of existing email alert failed");
+            ExtentReport.fail("Checking display of existing email alert failed");
         }
     }
 
@@ -166,9 +166,9 @@ public class RegisterPage {
             //Assert.assertTrue(this.newsletterYesRadio.isDisplayed());
             Assert.assertTrue(this.privacyPolicyCheckBox.isDisplayed());
             Assert.assertTrue(this.submitButton.isDisplayed());
-            ExtentReport.test.pass("Checking visibility of page elements passed");
+            ExtentReport.pass("Checking visibility of page elements passed");
         } catch (Exception e) {
-            ExtentReport.test.pass("Checking visibility of page elements failed");
+            ExtentReport.pass("Checking visibility of page elements failed");
         }
     }
 
@@ -177,9 +177,9 @@ public class RegisterPage {
             Assert.assertTrue(this.successBreadcrumb.isDisplayed());
             Assert.assertTrue(this.continueButton.isDisplayed());
             Assert.assertTrue(this.accountHeader.isDisplayed());
-            ExtentReport.test.pass("Checking visibility of success registration page elements passed");
+            ExtentReport.pass("Checking visibility of success registration page elements passed");
         } catch (Exception e) {
-            ExtentReport.test.pass("Checking visibility of success registration page elements failed");
+            ExtentReport.pass("Checking visibility of success registration page elements failed");
         }
     }
 

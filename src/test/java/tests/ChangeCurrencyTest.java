@@ -11,6 +11,7 @@ import utils.ExtentReport;
 public class ChangeCurrencyTest extends BaseTest{
 
     HomePage homePage;
+
     @BeforeMethod
     public void beforeTest(ITestResult result){
         ExtentReport.createTest(result.getMethod().getMethodName());

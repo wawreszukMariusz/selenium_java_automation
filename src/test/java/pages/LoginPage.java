@@ -34,53 +34,53 @@ public class LoginPage {
     public void setEmailInput(String email){
         try {
             this.emailInput.sendKeys(email);
-            ExtentReport.test.pass("Send keys to email input passed");
+            ExtentReport.pass("Send keys to email input passed");
         } catch (Exception e) {
-            ExtentReport.test.fail("Send keys to email input failed");
+            ExtentReport.fail("Send keys to email input failed");
         }
     }
 
     public void setPasswordInput(String password){
         try {
             this.passwordInput.sendKeys(password);
-            ExtentReport.test.pass("Send keys to password input passed");
+            ExtentReport.pass("Send keys to password input passed");
         } catch (Exception e) {
-            ExtentReport.test.fail("Send keys to password input failed");
+            ExtentReport.fail("Send keys to password input failed");
         }
     }
 
     public void clickSubmitButton(){
         try {
             this.submitButton.click();
-            ExtentReport.test.pass("Clicking on submit button done");
+            ExtentReport.pass("Clicking on submit button done");
         } catch (Exception e) {
-            ExtentReport.test.fail("Clicking on submit button failed");
+            ExtentReport.fail("Clicking on submit button failed");
         }
     }
 
     public void sentEmailAlertDisplayed(){
         try {
             Assert.assertTrue(this.sentEmailAlert.isDisplayed());
-            ExtentReport.test.pass("Checking display of sent email alert done");
+            ExtentReport.pass("Checking display of sent email alert done");
         } catch (Exception e) {
-            ExtentReport.test.fail("Checking display of sent email alert failed");
+            ExtentReport.fail("Checking display of sent email alert failed");
         }
     }
 
     public void incorrectLoginDataAlertDisplayed(){
         try {
             Assert.assertTrue(this.incorrectLoginDataAlert.isDisplayed());
-            ExtentReport.test.pass("Checking display of incorrect login data alert done");
+            ExtentReport.pass("Checking display of incorrect login data alert done");
         } catch (Exception e) {
-            ExtentReport.test.fail("Checking display of incorrect login data alert failed");
+            ExtentReport.fail("Checking display of incorrect login data alert failed");
         }
     }
     public void clickForgottenPasswordLink(){
         try {
             this.forgottenPasswordLink.click();
-            ExtentReport.test.pass("Clicking on forgotten password link done");
+            ExtentReport.pass("Clicking on forgotten password link done");
         } catch (Exception e) {
-            ExtentReport.test.fail("Clicking on forgotten password link failed");
+            ExtentReport.fail("Clicking on forgotten password link failed");
         }
     }
     public void pageDisplayed(){
@@ -89,9 +89,9 @@ public class LoginPage {
             Assert.assertTrue(this.passwordInput.isDisplayed());
             Assert.assertTrue(this.submitButton.isDisplayed());
             Assert.assertTrue(this.forgottenPasswordLink.isDisplayed());
-            ExtentReport.test.pass("Checking visibility of page elements passed");
+            ExtentReport.pass("Checking visibility of page elements passed");
         } catch (Exception e) {
-            ExtentReport.test.fail("Checking visibility of page elements failed");
+            ExtentReport.fail("Checking visibility of page elements failed");
         }
     }
 }

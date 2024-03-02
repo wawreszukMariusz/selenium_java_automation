@@ -36,27 +36,27 @@ public class SearchPage {
     public void setResultsSearchInput(String searchPhrase){
         try {
             this.resultsSearchInput.sendKeys(searchPhrase);
-            ExtentReport.test.pass("Send keys to results search input passed");
+            ExtentReport.pass("Send keys to results search input passed");
         } catch (Exception e) {
-            ExtentReport.test.fail("Send keys to results search input failed");
+            ExtentReport.fail("Send keys to results search input failed");
         }
     }
 
     public void clearResultsSearchInput(){
         try {
             this.resultsSearchInput.clear();
-            ExtentReport.test.pass("Clearing results search input passed");
+            ExtentReport.pass("Clearing results search input passed");
         } catch (Exception e) {
-            ExtentReport.test.fail("Clearing results search input failed");
+            ExtentReport.fail("Clearing results search input failed");
         }
     }
 
     public void clickSearchButton(){
         try {
             this.searchButton.click();
-            ExtentReport.test.pass("Clicking on search button done");
+            ExtentReport.pass("Clicking on search button done");
         } catch (Exception e) {
-            ExtentReport.test.fail("Clicking on search button failed");
+            ExtentReport.fail("Clicking on search button failed");
         }
     }
     public SearchPage(WebDriver driver){
@@ -66,18 +66,18 @@ public class SearchPage {
     public void productListNotDisplayed(){
         try {
             Assert.assertTrue(productList.isEmpty());
-            ExtentReport.test.pass("Checking display of empty shopping cart text done");
+            ExtentReport.pass("Checking display of empty shopping cart text done");
         } catch (Exception e) {
-            ExtentReport.test.fail("Checking display of empty shopping cart text failed");
+            ExtentReport.fail("Checking display of empty shopping cart text failed");
         }
     }
 
     public void productListDisplayed(){
         try {
             Assert.assertTrue(productList.size()>1);
-            ExtentReport.test.pass("Checking display of empty shopping cart text done");
+            ExtentReport.pass("Checking display of empty shopping cart text done");
         } catch (Exception e) {
-            ExtentReport.test.fail("Checking display of empty shopping cart text failed");
+            ExtentReport.fail("Checking display of empty shopping cart text failed");
         }
     }
 
@@ -89,9 +89,9 @@ public class SearchPage {
             Assert.assertEquals(searchHeader.getText(), this.searchHeaderTextFormat(searchPhrase));
             productListNotDisplayed();
 
-            ExtentReport.test.pass("Checking visibility of results not found page elements passed");
+            ExtentReport.pass("Checking visibility of results not found page elements passed");
         } catch (AssertionError e) {
-            ExtentReport.test.pass("Checking visibility of results not found page elements failed");
+            ExtentReport.pass("Checking visibility of results not found page elements failed");
         }
     }
 
@@ -105,9 +105,9 @@ public class SearchPage {
             Assert.assertTrue(productListViewButton.isDisplayed());
             Assert.assertTrue(productGridViewButton.isDisplayed());
 
-            ExtentReport.test.pass("Checking visibility of results found page elements passed");
+            ExtentReport.pass("Checking visibility of results found page elements passed");
         } catch (AssertionError e) {
-            ExtentReport.test.pass("Checking visibility of results found page elements failed");
+            ExtentReport.pass("Checking visibility of results found page elements failed");
         }
     }
 

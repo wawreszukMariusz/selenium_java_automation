@@ -15,9 +15,9 @@ public class ProductPage{
     public void checkProductPriceCurrency(String expectedCurrency){
         try {
             Assert.assertTrue(this.productPrice.getText().contains(expectedCurrency));
-            ExtentReport.test.pass("Checking product price currency change to " + expectedCurrency + "  done");
+            ExtentReport.pass("Checking product price currency change to " + expectedCurrency + "  done");
         } catch (AssertionError e) {
-            ExtentReport.test.fail("Checking product price currency change to " + expectedCurrency + "  failed");
+            ExtentReport.fail("Checking product price currency change to " + expectedCurrency + "  failed");
         }
     }
 

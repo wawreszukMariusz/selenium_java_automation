@@ -114,90 +114,90 @@ public class HomePage extends BasePage {
     public void clickMyAccountButton(){
         try {
             this.myAccountButton.click();
-            ExtentReport.test.pass("Clicking on My account button done");
+            ExtentReport.pass("Clicking on My account button done");
         } catch (Exception e) {
-            ExtentReport.test.fail("Clicking on My account failed");
+            ExtentReport.fail("Clicking on My account failed");
         }
     }
 
     public void clickRegisterDropDownButton(){
         try {
             this.registerDropDownButton.click();
-            ExtentReport.test.pass("Clicking on register dropdown button done");
+            ExtentReport.pass("Clicking on register dropdown button done");
         } catch (Exception e) {
-            ExtentReport.test.fail("Clicking on register dropdown button failed");
+            ExtentReport.fail("Clicking on register dropdown button failed");
         }
     }
 
     public void clickLoginDropDownButton(){
         try {
             this.loginDropDownButton.click();
-            ExtentReport.test.pass("Clicking on login dropdown button done");
+            ExtentReport.pass("Clicking on login dropdown button done");
         } catch (Exception e) {
-            ExtentReport.test.fail("Clicking on login dropdown button failed");
+            ExtentReport.fail("Clicking on login dropdown button failed");
         }
     }
 
     public void clickSearchInput(){
         try {
             this.searchInput.click();
-            ExtentReport.test.pass("Clicking on search input done");
+            ExtentReport.pass("Clicking on search input done");
         } catch (Exception e) {
-            ExtentReport.test.fail("Clicking on search input failed");
+            ExtentReport.fail("Clicking on search input failed");
         }
     }
 
     public void setSearchInput(String searchPhrase){
         try {
             this.searchInput.sendKeys(searchPhrase);
-            ExtentReport.test.pass("Send keys to search input passed");
+            ExtentReport.pass("Send keys to search input passed");
         } catch (Exception e) {
-            ExtentReport.test.fail("Send keys to search input failed");
+            ExtentReport.fail("Send keys to search input failed");
         }
     }
 
     public void clickSearchSubmitButton(){
         try {
             this.searchSubmitButton.click();
-            ExtentReport.test.pass("Clicking on search submit button done");
+            ExtentReport.pass("Clicking on search submit button done");
         } catch (Exception e) {
-            ExtentReport.test.fail("Clicking on search submit button failed");
+            ExtentReport.fail("Clicking on search submit button failed");
         }
     }
 
     public void clickChangeCurrencyButton(){
         try {
             this.changeCurrencyButton.click();
-            ExtentReport.test.pass("Clicking on change currency button done");
+            ExtentReport.pass("Clicking on change currency button done");
         } catch (Exception e) {
-            ExtentReport.test.fail("Clicking on change currency button failed");
+            ExtentReport.fail("Clicking on change currency button failed");
         }
     }
 
     public void clickChangeToEuroCurrencyButton(){
         try {
             this.changeToEuroCurrencyButton.click();
-            ExtentReport.test.pass("Clicking on change to euro currency button done");
+            ExtentReport.pass("Clicking on change to euro currency button done");
         } catch (Exception e) {
-            ExtentReport.test.fail("Clicking on change to euro currency button failed");
+            ExtentReport.fail("Clicking on change to euro currency button failed");
         }
     }
 
     public void clickChangeToPoundCurrencyButton(){
         try {
             this.changeToPoundCurrencyButton.click();
-            ExtentReport.test.pass("Clicking on change to pound currency button done");
+            ExtentReport.pass("Clicking on change to pound currency button done");
         } catch (Exception e) {
-            ExtentReport.test.fail("Clicking on change to pound currency button failed");
+            ExtentReport.fail("Clicking on change to pound currency button failed");
         }
     }
 
     public void checkProductPriceCurrency(String expectedCurrency){
         try {
             Assert.assertTrue(this.productPrice.get(0).getText().contains(expectedCurrency));
-            ExtentReport.test.pass("Checking product price currency change to " + expectedCurrency + "  done");
+            ExtentReport.pass("Checking product price currency change to " + expectedCurrency + "  done");
         } catch (AssertionError e) {
-            ExtentReport.test.fail("Checking product price currency change to " + expectedCurrency + "  failed");
+            ExtentReport.fail("Checking product price currency change to " + expectedCurrency + "  failed");
         }
     }
 
@@ -206,11 +206,11 @@ public class HomePage extends BasePage {
             for(int i=0; i<this.productNameList.size(); i++){
                 if(productName.equals(this.productNameList.get(i).getText())){
                     this.productNameList.get(i).click();
-                    ExtentReport.test.pass("Clicking on product " + productName + " done");
+                    ExtentReport.pass("Clicking on product " + productName + " done");
                 }
             }
         } catch (Exception e) {
-            ExtentReport.test.fail("Clicking on product " + productName + " failed");
+            ExtentReport.fail("Clicking on product " + productName + " failed");
         }
     }
 
@@ -219,11 +219,11 @@ public class HomePage extends BasePage {
             for(int i=0; i<this.navigationLinkList.size(); i++){
                 if(linkName.equals(this.navigationLinkList.get(i).getText())){
                     this.navigationLinkList.get(i).click();
-                    ExtentReport.test.pass("Clicking on navigation link " + linkName + " done");
+                    ExtentReport.pass("Clicking on navigation link " + linkName + " done");
                 }
             }
         } catch (Exception e) {
-            ExtentReport.test.fail("Clicking on navigation link " + linkName + " failed");
+            ExtentReport.fail("Clicking on navigation link " + linkName + " failed");
         }
     }
 
@@ -232,11 +232,11 @@ public class HomePage extends BasePage {
             for(int i=0; i<this.navigationDropdownLinkList.size(); i++){
                 if(this.navigationDropdownLinkList.get(i).getText().contains(linkName)){
                     this.navigationDropdownLinkList.get(i).click();
-                    ExtentReport.test.pass("Clicking on navigation dropdown link " + linkName + " done");
+                    ExtentReport.pass("Clicking on navigation dropdown link " + linkName + " done");
                 }
             }
         } catch (Exception e) {
-            ExtentReport.test.fail("Clicking on navigation dropdown link " + linkName + " failed");
+            ExtentReport.fail("Clicking on navigation dropdown link " + linkName + " failed");
         }
     }
 
@@ -257,9 +257,9 @@ public class HomePage extends BasePage {
             Assert.assertTrue(wishListButton.isDisplayed());
             Assert.assertTrue(shoppingBasketButton.isDisplayed());
             Assert.assertTrue(checkoutButton.isDisplayed());
-            ExtentReport.test.pass("Checking visibility of navigation elements passed");
+            ExtentReport.pass("Checking visibility of navigation elements passed");
         } catch (Exception e) {
-            ExtentReport.test.fail("Checking visibility of navigation elements failed");
+            ExtentReport.fail("Checking visibility of navigation elements failed");
         }
     }
 
@@ -277,9 +277,9 @@ public class HomePage extends BasePage {
             Assert.assertTrue(this.featuredCompaniesSection.isDisplayed());
             //Assert.assertTrue(this.singleFeaturedCompany.get(0).isDisplayed());
             this.navigationDisplayed();
-            ExtentReport.test.pass("Checking visibility of page elements passed");
+            ExtentReport.pass("Checking visibility of page elements passed");
         } catch (Exception e) {
-            ExtentReport.test.fail("Checking visibility of page elements failed");
+            ExtentReport.fail("Checking visibility of page elements failed");
         }
     }
 }
