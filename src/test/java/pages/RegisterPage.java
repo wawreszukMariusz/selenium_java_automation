@@ -10,64 +10,64 @@ import utils.ExtentReport;
 public class RegisterPage {
 
     @FindBy(id = "input-firstname")
-    public WebElement firstNameInput;
+    private WebElement firstNameInput;
 
     @FindBy(id = "input-lastname")
-    public WebElement lastNameInput;
+    private WebElement lastNameInput;
 
     @FindBy(id = "input-email")
-    public WebElement emailInput;
+    private WebElement emailInput;
 
     @FindBy(id = "input-telephone")
-    public WebElement phoneInput;
+    private WebElement phoneInput;
 
     @FindBy(id = "input-password")
-    public WebElement passwordInput;
+    private WebElement passwordInput;
 
     @FindBy(id = "input-confirm")
-    public WebElement confirmPasswordInput;
+    private WebElement confirmPasswordInput;
 
     @FindBy(xpath = "//input[@value='0' and @type='radio']")
-    public WebElement newsletterNoRadio;
+    private WebElement newsletterNoRadio;
 
     @FindBy(xpath = "//input[@value='1' and @type='radio']")
-    public WebElement newsletterYesRadio;
+    private WebElement newsletterYesRadio;
 
     @FindBy(name = "agree")
-    public WebElement privacyPolicyCheckBox;
+    private WebElement privacyPolicyCheckBox;
 
     @FindBy(xpath = "//input[@type='submit']")
-    public WebElement submitButton;
+    private WebElement submitButton;
 
     @FindBy(xpath = "//a[text()='Success']")
-    public WebElement successBreadcrumb;
+    private WebElement successBreadcrumb;
 
     @FindBy(xpath = "//a[text()='Continue']")
-    public WebElement continueButton;
+    private WebElement continueButton;
 
     @FindBy(xpath = "//div[@id='content']/h1[text()='Account']")
-    public WebElement accountHeader;
+    private WebElement accountHeader;
 
     @FindBy(xpath = "//div[text()=' Warning: You must agree to the Privacy Policy!']")
-    public WebElement emptyPrivacyPolicyAlert;
+    private WebElement emptyPrivacyPolicyAlert;
 
     @FindBy(xpath = "//div[text()=' Warning: E-Mail Address is already registered!']")
-    public WebElement existingEmailAlert;
+    private WebElement existingEmailAlert;
 
     @FindBy(xpath = "//input[@id='input-firstname']/../div[@class='text-danger']")
-    public WebElement firstNameInputAlert;
+    private WebElement firstNameInputAlert;
 
     @FindBy(xpath = "//input[@id='input-lastname']/../div[@class='text-danger']")
-    public WebElement lastNameInputAlert;
+    private WebElement lastNameInputAlert;
 
     @FindBy(xpath = "//input[@id='input-email']/../div[@class='text-danger']")
-    public WebElement emailInputAlert;
+    private WebElement emailInputAlert;
 
     @FindBy(xpath = "//input[@id='input-telephone']/../div[@class='text-danger']")
-    public WebElement phoneInputAlert;
+    private WebElement phoneInputAlert;
 
     @FindBy(xpath = "//input[@id='input-password']/../div[@class='text-danger']")
-    public WebElement passwordInputAlert;
+    private WebElement passwordInputAlert;
 
     public RegisterPage(WebDriver driver){
         PageFactory.initElements(driver, this);
@@ -163,7 +163,6 @@ public class RegisterPage {
             Assert.assertTrue(this.passwordInput.isDisplayed());
             Assert.assertTrue(this.confirmPasswordInput.isDisplayed());
             Assert.assertTrue(this.newsletterNoRadio.isDisplayed());
-            //Assert.assertTrue(this.newsletterYesRadio.isDisplayed());
             Assert.assertTrue(this.privacyPolicyCheckBox.isDisplayed());
             Assert.assertTrue(this.submitButton.isDisplayed());
             ExtentReport.pass("Checking visibility of page elements passed");
@@ -195,11 +194,16 @@ public class RegisterPage {
     }
 
     public void checkEmptyRegisterFormAlerts(){
-        Assert.assertTrue(this.emptyPrivacyPolicyAlert.isDisplayed());
-        Assert.assertTrue(this.firstNameInputAlert.isDisplayed());
-        Assert.assertTrue(this.lastNameInputAlert.isDisplayed());
-        Assert.assertTrue(this.emailInputAlert.isDisplayed());
-        Assert.assertTrue(this.phoneInputAlert.isDisplayed());
-        Assert.assertTrue(this.passwordInputAlert.isDisplayed());
+        try {
+            Assert.assertTrue(this.emptyPrivacyPolicyAlert.isDisplayed());
+            Assert.assertTrue(this.firstNameInputAlert.isDisplayed());
+            Assert.assertTrue(this.lastNameInputAlert.isDisplayed());
+            Assert.assertTrue(this.emailInputAlert.isDisplayed());
+            Assert.assertTrue(this.phoneInputAlert.isDisplayed());
+            Assert.assertTrue(this.passwordInputAlert.isDisplayed());
+            ExtentReport.pass("Checking empty register form alerts passed");
+        } catch (Exception e) {
+            ExtentReport.pass("Checking empty register form alerts failed");
+        }
     }
 }

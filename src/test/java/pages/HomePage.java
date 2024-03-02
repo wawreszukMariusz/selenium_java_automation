@@ -265,7 +265,6 @@ public class HomePage extends BasePage {
 
     public void pageDisplayed(){
         try{
-//          Assert.assertTrue(this.slideShow.isDisplayed());
             Assert.assertTrue(this.featuredHeader.isDisplayed());
             Assert.assertTrue(this.productList.get(0).isDisplayed());
             Assert.assertTrue(this.productDesc.get(0).isDisplayed());
@@ -275,7 +274,6 @@ public class HomePage extends BasePage {
             Assert.assertTrue(this.productPrice.get(0).isDisplayed());
             Assert.assertTrue(this.productTaxPrice.get(0).isDisplayed());
             Assert.assertTrue(this.featuredCompaniesSection.isDisplayed());
-            //Assert.assertTrue(this.singleFeaturedCompany.get(0).isDisplayed());
             this.navigationDisplayed();
             ExtentReport.pass("Checking visibility of page elements passed");
         } catch (Exception e) {

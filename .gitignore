@@ -37,4 +37,7 @@ build/
 ### Mac OS ###
 .DS_Store
 
+### Reports ###
 src/test/reports/screenshots/
+src/test/reports/spark
+src/test/reports/report.html

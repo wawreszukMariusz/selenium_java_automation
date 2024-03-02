@@ -9,7 +9,7 @@ import org.testng.Assert;
 public class AccountPage {
 
     @FindBy(xpath = "//div[@id='content']/h2[text()='My Account']")
-    public WebElement myAccountHeader;
+    private WebElement myAccountHeader;
 
     public AccountPage(WebDriver driver){
         PageFactory.initElements(driver, this);

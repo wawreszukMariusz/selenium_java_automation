@@ -10,22 +10,22 @@ import utils.ExtentReport;
 public class LoginPage {
 
     @FindBy(id = "input-email")
-    public WebElement emailInput;
+    private WebElement emailInput;
 
     @FindBy(id = "input-password")
-    public WebElement passwordInput;
+    private WebElement passwordInput;
 
     @FindBy(xpath = "//input[@type='submit']")
-    public WebElement submitButton;
+    private WebElement submitButton;
 
     @FindBy(xpath = "//a[text()='Forgotten Password']")
-    public WebElement forgottenPasswordLink;
+    private WebElement forgottenPasswordLink;
 
     @FindBy(className = "alert-danger")
-    public WebElement incorrectLoginDataAlert;
+    private WebElement incorrectLoginDataAlert;
 
     @FindBy(className = "alert-success")
-    public WebElement sentEmailAlert;
+    private WebElement sentEmailAlert;
 
     public LoginPage(WebDriver driver){
         PageFactory.initElements(driver, this);

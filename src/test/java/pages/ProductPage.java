@@ -10,7 +10,7 @@ import utils.ExtentReport;
 public class ProductPage{
 
     @FindBy(xpath = "//ul[@class='list-unstyled']/li/h2")
-    public WebElement productPrice;
+    private WebElement productPrice;
 
     public void checkProductPriceCurrency(String expectedCurrency){
         try {

@@ -71,8 +71,7 @@ public class LoginTest extends BaseTest{
     @Test
     public void wrongRememberingForgottenPasswordTest(){
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.forgottenPasswordLink.click();
-
+        loginPage.clickForgottenPasswordLink();
         ForgottenPasswordPage forgottenPasswordPage = new ForgottenPasswordPage(driver);
         forgottenPasswordPage.setEmailInput("test@test.pl");
         forgottenPasswordPage.clickContinueButton();

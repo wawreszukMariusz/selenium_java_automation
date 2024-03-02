@@ -12,25 +12,25 @@ import java.util.List;
 public class SearchPage {
 
     @FindBy(className = "product-thumb")
-    public List<WebElement> productList;
+    private List<WebElement> productList;
 
     @FindBy(name = "category_id")
-    public WebElement categoryDropDown;
+    private WebElement categoryDropDown;
 
     @FindBy(id = "button-search")
-    public WebElement searchButton;
+    private WebElement searchButton;
 
     @FindBy(xpath = "//div[@id='content']/h1")
-    public WebElement searchHeader;
+    private WebElement searchHeader;
 
     @FindBy(className = "fa-th-list")
-    public WebElement productListViewButton;
+    private WebElement productListViewButton;
 
     @FindBy(className = "fa-th")
-    public WebElement productGridViewButton;
+    private WebElement productGridViewButton;
 
     @FindBy(id = "input-search")
-    public WebElement resultsSearchInput;
+    private WebElement resultsSearchInput;
 
 
     public void setResultsSearchInput(String searchPhrase){

@@ -9,13 +9,13 @@ import utils.ExtentReport;
 
 public class ForgottenPasswordPage {
     @FindBy(id = "input-email")
-    public WebElement emailInput;
+    private WebElement emailInput;
 
     @FindBy(xpath = "//input[@type='submit']")
-    public WebElement continueButton;
+    private WebElement continueButton;
 
     @FindBy(className = "alert")
-    public WebElement incorrectEmailAlert;
+    private WebElement incorrectEmailAlert;
 
     public ForgottenPasswordPage(WebDriver driver){
         PageFactory.initElements(driver, this);
