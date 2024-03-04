@@ -8,11 +8,12 @@ import pages.RegisterPage;
 import utils.ExtentReport;
 import utils.PropertiesLoader;
 
-public class RegisterTest extends BaseTest{
+public class RegisterTest extends BaseTest {
 
     String email;
+
     @BeforeMethod
-    public void beforeTest(ITestResult result){
+    public void beforeTest(ITestResult result) {
         ExtentReport.createTest(result.getMethod().getMethodName());
 
         HomePage homePage = new HomePage(driver);
@@ -24,15 +25,15 @@ public class RegisterTest extends BaseTest{
     }
 
     @Test
-    public void properRegisterTest(){
+    public void properRegisterTest() {
         RegisterPage registerPage = new RegisterPage(driver);
         registerPage.pageDisplayed();
         registerPage.fillRegisterForm(email);
         registerPage.successRegistrationPageDisplayed();
     }
-
+ 
     @Test
-    public void sendEmptyRegisterFormTest(){
+    public void sendEmptyRegisterFormTest() {
         RegisterPage registerPage = new RegisterPage(driver);
         registerPage.pageDisplayed();
         registerPage.clickSubmitButton();
@@ -40,7 +41,7 @@ public class RegisterTest extends BaseTest{
     }
 
     @Test
-    public void fillRegisterFormWithExistingEmail(){
+    public void fillRegisterFormWithExistingEmail() {
         RegisterPage registerPage = new RegisterPage(driver);
         registerPage.pageDisplayed();
         registerPage.fillRegisterForm(PropertiesLoader.loadProperty("email"));

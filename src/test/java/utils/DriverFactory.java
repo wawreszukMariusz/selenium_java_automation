@@ -11,15 +11,12 @@ public class DriverFactory {
     public static WebDriver getDriver() throws IOException {
         String name = PropertiesLoader.loadProperty("browser.name");
 
-        if(name.equals("firefox")) {
+        if (name.equals("firefox")) {
             return new FirefoxDriver();
-        }
-        else if (name.equals("edge")) {
+        } else if (name.equals("edge")) {
             return new EdgeDriver();
-        }
-        else  {
+        } else {
             return new ChromeDriver();
         }
     }
-
 }

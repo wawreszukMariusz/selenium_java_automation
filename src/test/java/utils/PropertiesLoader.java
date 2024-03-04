@@ -21,8 +21,6 @@ public class PropertiesLoader {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
         return properties.getProperty(propertyName);
     }
-
 }

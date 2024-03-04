@@ -5,15 +5,14 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.ProductPage;
-import pages.RegisterPage;
 import utils.ExtentReport;
 
-public class ChangeCurrencyTest extends BaseTest{
+public class ChangeCurrencyTest extends BaseTest {
 
     HomePage homePage;
 
     @BeforeMethod
-    public void beforeTest(ITestResult result){
+    public void beforeTest(ITestResult result) {
         ExtentReport.createTest(result.getMethod().getMethodName());
 
         homePage = new HomePage(driver);
@@ -53,7 +52,6 @@ public class ChangeCurrencyTest extends BaseTest{
         ProductPage productPage = new ProductPage(driver);
         productPage.checkProductPriceCurrency("£");
     }
-
 
     @Test
     public void changeCurrencyToPoundOnSubpage() throws InterruptedException {

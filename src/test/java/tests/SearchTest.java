@@ -3,27 +3,25 @@ package tests;
 import org.testng.ITestResult;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages.AccountPage;
 import pages.HomePage;
-import pages.LoginPage;
 import pages.SearchPage;
 import utils.ExtentReport;
-import utils.PropertiesLoader;
 
-public class SearchTest extends BaseTest{
+public class SearchTest extends BaseTest {
 
     HomePage homePage = new HomePage(driver);
 
     @BeforeMethod
-    public void beforeTest(ITestResult result){
+    public void beforeTest(ITestResult result) {
         ExtentReport.createTest(result.getMethod().getMethodName());
 
         homePage = new HomePage(driver);
         homePage.pageDisplayed();
         homePage.clickSearchInput();
     }
+
     @Test
-    public void noResultsFoundSearchTest(){
+    public void noResultsFoundSearchTest() {
         homePage.setSearchInput("test");
         homePage.clickSearchSubmitButton();
 
@@ -32,7 +30,7 @@ public class SearchTest extends BaseTest{
     }
 
     @Test
-    public void resultsFoundSearchTest(){
+    public void resultsFoundSearchTest() {
         homePage.setSearchInput("Mac");
         homePage.clickSearchSubmitButton();
 
@@ -41,7 +39,7 @@ public class SearchTest extends BaseTest{
     }
 
     @Test
-    public void resultsFoundOnSearchAgainOnSearchPageTest(){
+    public void resultsFoundOnSearchAgainOnSearchPageTest() {
         homePage.setSearchInput("Mac");
         homePage.clickSearchSubmitButton();
 
@@ -54,7 +52,7 @@ public class SearchTest extends BaseTest{
     }
 
     @Test
-    public void noResultsFromSearchAgainOnSearchPageTest(){
+    public void noResultsFromSearchAgainOnSearchPageTest() {
         homePage.setSearchInput("Mac");
         homePage.clickSearchSubmitButton();
 

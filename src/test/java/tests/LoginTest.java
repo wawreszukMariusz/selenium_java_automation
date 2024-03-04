@@ -3,14 +3,17 @@ package tests;
 import org.testng.ITestResult;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages.*;
+import pages.AccountPage;
+import pages.ForgottenPasswordPage;
+import pages.HomePage;
+import pages.LoginPage;
 import utils.ExtentReport;
 import utils.PropertiesLoader;
 
-public class LoginTest extends BaseTest{
+public class LoginTest extends BaseTest {
 
     @BeforeMethod
-    public void beforeTest(ITestResult result){
+    public void beforeTest(ITestResult result) {
         ExtentReport.createTest(result.getMethod().getMethodName());
 
         HomePage homePage = new HomePage(driver);
@@ -20,7 +23,7 @@ public class LoginTest extends BaseTest{
     }
 
     @Test
-    public void properLoginTest(){
+    public void properLoginTest() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.setEmailInput(PropertiesLoader.loadProperty("email"));
         loginPage.setPasswordInput("Pass123@");
@@ -31,7 +34,7 @@ public class LoginTest extends BaseTest{
     }
 
     @Test
-    public void incorrectLoginDataTest(){
+    public void incorrectLoginDataTest() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.setEmailInput("test@test.com");
         loginPage.setPasswordInput("test");
@@ -40,7 +43,7 @@ public class LoginTest extends BaseTest{
     }
 
     @Test
-    public void incorrectEmailTest(){
+    public void incorrectEmailTest() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.setEmailInput("test");
         loginPage.setPasswordInput("test");
@@ -49,14 +52,14 @@ public class LoginTest extends BaseTest{
     }
 
     @Test
-    public void sendingEmptyFormTest(){
+    public void sendingEmptyFormTest() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.clickSubmitButton();
         loginPage.incorrectLoginDataAlertDisplayed();
     }
 
     @Test
-    public void properRememberingForgottenPasswordTest(){
+    public void properRememberingForgottenPasswordTest() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.clickForgottenPasswordLink();
 
@@ -69,7 +72,7 @@ public class LoginTest extends BaseTest{
     }
 
     @Test
-    public void wrongRememberingForgottenPasswordTest(){
+    public void wrongRememberingForgottenPasswordTest() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.clickForgottenPasswordLink();
         ForgottenPasswordPage forgottenPasswordPage = new ForgottenPasswordPage(driver);

@@ -4,8 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
-import utils.ExtentReport;
 
 import java.util.List;
 
@@ -32,69 +30,68 @@ public class SearchPage extends BasePage {
     @FindBy(id = "input-search")
     private WebElement resultsSearchInput;
 
-    public SearchPage(WebDriver driver){
+    public SearchPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 
-    public void setResultsSearchInput(String searchPhrase){
+    public void setResultsSearchInput(String searchPhrase) {
         elementSendKeys(this.resultsSearchInput, "result search input", searchPhrase);
     }
 
-    public void clearResultsSearchInput(){
+    public void clearResultsSearchInput() {
         clearElement(this.resultsSearchInput, "results search input");
     }
 
-    public void clickSearchButton(){
+    public void clickSearchButton() {
         clickElement(this.searchButton, "search button");
     }
 
-    public void productListNotDisplayed(){
+    public void productListNotDisplayed() {
         elementListNotDisplayed(this.productList, "product list");
     }
 
-    public void productListDisplayed(){
+    public void productListDisplayed() {
         elementListNotEmpty(this.productList, "product list");
     }
 
-    public void categoryDropDownDisplayed(){
+    public void categoryDropDownDisplayed() {
         elementDisplayed(this.categoryDropDown, "category dropdown");
     }
 
-    public void searchButtonDisplayed(){
+    public void searchButtonDisplayed() {
         elementDisplayed(this.searchButton, "search button");
     }
 
-    public void searchHeaderDisplayed(String searchPhrase){
+    public void searchHeaderDisplayed(String searchPhrase) {
         elementDisplayed(this.searchHeader, "search header");
         compareElements(this.searchHeader, "search header", this.searchHeaderTextFormat(searchPhrase));
     }
 
-    public void productListViewButtonDisplayed(){
+    public void productListViewButtonDisplayed() {
         elementDisplayed(this.productListViewButton, "product list view button");
     }
 
-    public void productGridViewButtonDisplayed(){
+    public void productGridViewButtonDisplayed() {
         elementDisplayed(this.productGridViewButton, "product grid view button");
     }
 
-
-    public void resultsNotFoundPageDisplayed(String searchPhrase){
-            this.categoryDropDownDisplayed();
-            this.searchButtonDisplayed();
-            this.searchHeaderDisplayed(searchPhrase);
-            this.productListNotDisplayed();
+    public void resultsNotFoundPageDisplayed(String searchPhrase) {
+        this.categoryDropDownDisplayed();
+        this.searchButtonDisplayed();
+        this.searchHeaderDisplayed(searchPhrase);
+        this.productListNotDisplayed();
     }
 
-    public void resultsFoundPageDisplayed(String searchPhrase){
-            this.categoryDropDownDisplayed();
-            this.searchButtonDisplayed();
-            this.searchHeaderDisplayed(searchPhrase);
-            this.productListDisplayed();
-            this.productListViewButtonDisplayed();
-            this.productGridViewButtonDisplayed();
+    public void resultsFoundPageDisplayed(String searchPhrase) {
+        this.categoryDropDownDisplayed();
+        this.searchButtonDisplayed();
+        this.searchHeaderDisplayed(searchPhrase);
+        this.productListDisplayed();
+        this.productListViewButtonDisplayed();
+        this.productGridViewButtonDisplayed();
     }
 
-    public String searchHeaderTextFormat(String searchPhrase){
+    public String searchHeaderTextFormat(String searchPhrase) {
         return "Search - " + searchPhrase;
     }
 }

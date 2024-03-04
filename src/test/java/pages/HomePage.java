@@ -4,8 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
-import utils.ExtentReport;
 
 import java.util.List;
 
@@ -111,158 +109,159 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//div[@class='dropdown-menu']//li/a")
     public List<WebElement> navigationDropdownLinkList;
 
-    public void clickMyAccountButton(){
+    public void clickMyAccountButton() {
         clickElement(this.myAccountButton, "my account button");
     }
 
-    public void clickRegisterDropDownButton(){
+    public void clickRegisterDropDownButton() {
         clickElement(this.registerDropDownButton, "register dropdown button");
     }
 
-    public void clickLoginDropDownButton(){
+    public void clickLoginDropDownButton() {
         clickElement(this.loginDropDownButton, "login dropdown button");
     }
 
-    public void clickSearchInput(){
+    public void clickSearchInput() {
         clickElement(this.searchInput, "search input");
     }
 
-    public void setSearchInput(String searchPhrase){
+    public void setSearchInput(String searchPhrase) {
         elementSendKeys(searchInput, "search input", searchPhrase);
     }
 
-    public void clickSearchSubmitButton(){
+    public void clickSearchSubmitButton() {
         clickElement(this.searchSubmitButton, "search submit button");
     }
 
-    public void clickChangeCurrencyButton(){
+    public void clickChangeCurrencyButton() {
         clickElement(this.changeCurrencyButton, "change currency button");
     }
 
-    public void clickChangeToEuroCurrencyButton(){
+    public void clickChangeToEuroCurrencyButton() {
         clickElement(this.changeToEuroCurrencyButton, "change to euro currency button");
     }
 
-    public void clickChangeToPoundCurrencyButton(){
+    public void clickChangeToPoundCurrencyButton() {
         clickElement(this.changeToPoundCurrencyButton, "change to pound currency button");
     }
 
-    public void checkProductPriceCurrency(String expectedCurrency){
+    public void checkProductPriceCurrency(String expectedCurrency) {
         compareElements(this.productPriceList.get(0), "product price list", expectedCurrency);
     }
 
-    public void logoDisplayed(){
+    public void logoDisplayed() {
         elementDisplayed(this.logo, "logo");
     }
 
-    public void searchInputDisplayed(){
+    public void searchInputDisplayed() {
         elementDisplayed(this.searchInput, "search input");
     }
 
-    public void searchSubmitButtonDisplayed(){
+    public void searchSubmitButtonDisplayed() {
         elementDisplayed(this.searchSubmitButton, "search submit button");
     }
 
-    public void shoppingBasketListButtonDisplayed(){
+    public void shoppingBasketListButtonDisplayed() {
         elementDisplayed(this.shoppingBasketListButton, "shopping basket list button");
     }
 
-    public void changeCurrencyButtonDisplayed(){
+    public void changeCurrencyButtonDisplayed() {
         elementDisplayed(this.changeCurrencyButton, "change currency button");
     }
 
-    public void phoneContactButtonDisplayed(){
+    public void phoneContactButtonDisplayed() {
         elementDisplayed(this.phoneContactButton, "phone contact button");
     }
 
-    public void phoneNumberSpanDisplayed(){
+    public void phoneNumberSpanDisplayed() {
         elementDisplayed(this.phoneNumberSpan, "phone number span");
     }
 
-    public void myAccountButtonDisplayed(){
+    public void myAccountButtonDisplayed() {
         elementDisplayed(this.myAccountButton, "my account button");
     }
 
-    public void wishListButtonDisplayed(){
+    public void wishListButtonDisplayed() {
         elementDisplayed(this.wishListButton, "wish list button");
     }
 
-    public void shoppingBasketButtonDisplayed(){
+    public void shoppingBasketButtonDisplayed() {
         elementDisplayed(this.shoppingBasketButton, "shopping basket button");
     }
 
-    public void featuredHeaderDisplayed(){
+    public void featuredHeaderDisplayed() {
         elementDisplayed(this.featuredHeader, "featured header");
     }
 
 
-    public void productListDisplayed(){
+    public void productListDisplayed() {
         elementDisplayed(this.productList.get(0), "product list");
     }
 
-    public void productDescListDisplayed(){
+    public void productDescListDisplayed() {
         elementDisplayed(this.productDescList.get(0), "product desc list");
     }
 
-    public void productAddToCartListDisplayed(){
+    public void productAddToCartListDisplayed() {
         elementDisplayed(this.productAddToCartList.get(0), "product add to cart list");
     }
 
-    public void productAddToWishListDisplayed(){
+    public void productAddToWishListDisplayed() {
         elementDisplayed(this.productAddToWishList.get(0), "product add to wish list");
     }
 
-    public void productCompareProductsListDisplayed(){
+    public void productCompareProductsListDisplayed() {
         elementDisplayed(this.productCompareProductsList.get(0), "product compare products list");
     }
 
-    public void productPriceListDisplayed(){
+    public void productPriceListDisplayed() {
         elementDisplayed(this.productPriceList.get(0), "product price list");
     }
 
-    public void productTaxPriceListDisplayed(){
+    public void productTaxPriceListDisplayed() {
         elementDisplayed(this.productTaxPriceList.get(0), "product tax price list");
     }
 
-    public void featuredCompaniesSectionDisplayed(){
+    public void featuredCompaniesSectionDisplayed() {
         elementDisplayed(this.featuredCompaniesSection, "featured companies section");
     }
 
-    public void checkoutButtonDisplayed(){
+    public void checkoutButtonDisplayed() {
         elementDisplayed(this.checkoutButton, "my account button");
     }
 
-    public void clickOnProduct(String productName){
+    public void clickOnProduct(String productName) {
         searchAndClick(this.productNameList, productName);
     }
 
-    public void clickOnNavigationLink(String linkName){
+    public void clickOnNavigationLink(String linkName) {
         searchAndClick(this.navigationLinkList, linkName);
     }
 
-    public void clickOnNavigationDropdownLink(String linkName){
+    public void clickOnNavigationDropdownLink(String linkName) {
         searchAndClick(this.navigationDropdownLinkList, linkName);
     }
+    
 
-    public HomePage(WebDriver driver){
+    public HomePage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 
-    public void navigationDisplayed(){
-            this.logoDisplayed();
-            this.searchInputDisplayed();
-            this.searchSubmitButtonDisplayed();
-            this.shoppingBasketButtonDisplayed();
-            this.changeCurrencyButtonDisplayed();
-            this.phoneContactButtonDisplayed();
-            this.phoneNumberSpanDisplayed();
-            this.myAccountButtonDisplayed();
-            this.wishListButtonDisplayed();
-            this.shoppingBasketButtonDisplayed();
-            this.checkoutButtonDisplayed();
+    public void navigationDisplayed() {
+        this.logoDisplayed();
+        this.searchInputDisplayed();
+        this.searchSubmitButtonDisplayed();
+        this.shoppingBasketButtonDisplayed();
+        this.changeCurrencyButtonDisplayed();
+        this.phoneContactButtonDisplayed();
+        this.phoneNumberSpanDisplayed();
+        this.myAccountButtonDisplayed();
+        this.wishListButtonDisplayed();
+        this.shoppingBasketButtonDisplayed();
+        this.checkoutButtonDisplayed();
     }
 
-    public void pageDisplayed(){
+    public void pageDisplayed() {
         this.featuredHeaderDisplayed();
         this.productListDisplayed();
         this.productDescListDisplayed();
