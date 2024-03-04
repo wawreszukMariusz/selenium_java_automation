@@ -31,28 +31,28 @@ public class HomePage extends BasePage {
     public List<WebElement> productList;
 
     @FindBy(className = "caption")
-    public List<WebElement> productDesc;
+    public List<WebElement> productDescList;
 
     @FindBy(className = "fa-shopping-cart")
-    public List<WebElement> productAddToCart;
+    public List<WebElement> productAddToCartList;
 
     @FindBy(className = "fa-heart")
     public List<WebElement> productAddToWishList;
 
     @FindBy(className = "fa-exchange")
-    public List<WebElement> productCompareProducts;
+    public List<WebElement> productCompareProductsList;
 
     @FindBy(className = "price")
-    public List<WebElement> productPrice;
+    public List<WebElement> productPriceList;
 
     @FindBy(className = "price-tax")
-    public List<WebElement> productTaxPrice;
+    public List<WebElement> productTaxPriceList;
 
     @FindBy(className = "carousel0")
     public WebElement featuredCompaniesSection;
 
     @FindBy(xpath = "//div[@id='carousel0']/div/div")
-    public List<WebElement> singleFeaturedCompany;
+    public List<WebElement> singleFeaturedCompanyList;
 
     @FindBy(xpath = "//a[@href='http://opencart.abstracta.us:80/index.php?route=common/home']")
     public WebElement logo;
@@ -112,132 +112,136 @@ public class HomePage extends BasePage {
     public List<WebElement> navigationDropdownLinkList;
 
     public void clickMyAccountButton(){
-        try {
-            this.myAccountButton.click();
-            ExtentReport.pass("Clicking on My account button done");
-        } catch (Exception e) {
-            ExtentReport.fail("Clicking on My account failed");
-        }
+        clickElement(this.myAccountButton, "my account button");
     }
 
     public void clickRegisterDropDownButton(){
-        try {
-            this.registerDropDownButton.click();
-            ExtentReport.pass("Clicking on register dropdown button done");
-        } catch (Exception e) {
-            ExtentReport.fail("Clicking on register dropdown button failed");
-        }
+        clickElement(this.registerDropDownButton, "register dropdown button");
     }
 
     public void clickLoginDropDownButton(){
-        try {
-            this.loginDropDownButton.click();
-            ExtentReport.pass("Clicking on login dropdown button done");
-        } catch (Exception e) {
-            ExtentReport.fail("Clicking on login dropdown button failed");
-        }
+        clickElement(this.loginDropDownButton, "login dropdown button");
     }
 
     public void clickSearchInput(){
-        try {
-            this.searchInput.click();
-            ExtentReport.pass("Clicking on search input done");
-        } catch (Exception e) {
-            ExtentReport.fail("Clicking on search input failed");
-        }
+        clickElement(this.searchInput, "search input");
     }
 
     public void setSearchInput(String searchPhrase){
-        try {
-            this.searchInput.sendKeys(searchPhrase);
-            ExtentReport.pass("Send keys to search input passed");
-        } catch (Exception e) {
-            ExtentReport.fail("Send keys to search input failed");
-        }
+        elementSendKeys(searchInput, "search input", searchPhrase);
     }
 
     public void clickSearchSubmitButton(){
-        try {
-            this.searchSubmitButton.click();
-            ExtentReport.pass("Clicking on search submit button done");
-        } catch (Exception e) {
-            ExtentReport.fail("Clicking on search submit button failed");
-        }
+        clickElement(this.searchSubmitButton, "search submit button");
     }
 
     public void clickChangeCurrencyButton(){
-        try {
-            this.changeCurrencyButton.click();
-            ExtentReport.pass("Clicking on change currency button done");
-        } catch (Exception e) {
-            ExtentReport.fail("Clicking on change currency button failed");
-        }
+        clickElement(this.changeCurrencyButton, "change currency button");
     }
 
     public void clickChangeToEuroCurrencyButton(){
-        try {
-            this.changeToEuroCurrencyButton.click();
-            ExtentReport.pass("Clicking on change to euro currency button done");
-        } catch (Exception e) {
-            ExtentReport.fail("Clicking on change to euro currency button failed");
-        }
+        clickElement(this.changeToEuroCurrencyButton, "change to euro currency button");
     }
 
     public void clickChangeToPoundCurrencyButton(){
-        try {
-            this.changeToPoundCurrencyButton.click();
-            ExtentReport.pass("Clicking on change to pound currency button done");
-        } catch (Exception e) {
-            ExtentReport.fail("Clicking on change to pound currency button failed");
-        }
+        clickElement(this.changeToPoundCurrencyButton, "change to pound currency button");
     }
 
     public void checkProductPriceCurrency(String expectedCurrency){
-        try {
-            Assert.assertTrue(this.productPrice.get(0).getText().contains(expectedCurrency));
-            ExtentReport.pass("Checking product price currency change to " + expectedCurrency + "  done");
-        } catch (AssertionError e) {
-            ExtentReport.fail("Checking product price currency change to " + expectedCurrency + "  failed");
-        }
+        compareElements(this.productPriceList.get(0), "product price list", expectedCurrency);
+    }
+
+    public void logoDisplayed(){
+        elementDisplayed(this.logo, "logo");
+    }
+
+    public void searchInputDisplayed(){
+        elementDisplayed(this.searchInput, "search input");
+    }
+
+    public void searchSubmitButtonDisplayed(){
+        elementDisplayed(this.searchSubmitButton, "search submit button");
+    }
+
+    public void shoppingBasketListButtonDisplayed(){
+        elementDisplayed(this.shoppingBasketListButton, "shopping basket list button");
+    }
+
+    public void changeCurrencyButtonDisplayed(){
+        elementDisplayed(this.changeCurrencyButton, "change currency button");
+    }
+
+    public void phoneContactButtonDisplayed(){
+        elementDisplayed(this.phoneContactButton, "phone contact button");
+    }
+
+    public void phoneNumberSpanDisplayed(){
+        elementDisplayed(this.phoneNumberSpan, "phone number span");
+    }
+
+    public void myAccountButtonDisplayed(){
+        elementDisplayed(this.myAccountButton, "my account button");
+    }
+
+    public void wishListButtonDisplayed(){
+        elementDisplayed(this.wishListButton, "wish list button");
+    }
+
+    public void shoppingBasketButtonDisplayed(){
+        elementDisplayed(this.shoppingBasketButton, "shopping basket button");
+    }
+
+    public void featuredHeaderDisplayed(){
+        elementDisplayed(this.featuredHeader, "featured header");
+    }
+
+
+    public void productListDisplayed(){
+        elementDisplayed(this.productList.get(0), "product list");
+    }
+
+    public void productDescListDisplayed(){
+        elementDisplayed(this.productDescList.get(0), "product desc list");
+    }
+
+    public void productAddToCartListDisplayed(){
+        elementDisplayed(this.productAddToCartList.get(0), "product add to cart list");
+    }
+
+    public void productAddToWishListDisplayed(){
+        elementDisplayed(this.productAddToWishList.get(0), "product add to wish list");
+    }
+
+    public void productCompareProductsListDisplayed(){
+        elementDisplayed(this.productCompareProductsList.get(0), "product compare products list");
+    }
+
+    public void productPriceListDisplayed(){
+        elementDisplayed(this.productPriceList.get(0), "product price list");
+    }
+
+    public void productTaxPriceListDisplayed(){
+        elementDisplayed(this.productTaxPriceList.get(0), "product tax price list");
+    }
+
+    public void featuredCompaniesSectionDisplayed(){
+        elementDisplayed(this.featuredCompaniesSection, "featured companies section");
+    }
+
+    public void checkoutButtonDisplayed(){
+        elementDisplayed(this.checkoutButton, "my account button");
     }
 
     public void clickOnProduct(String productName){
-        try {
-            for(int i=0; i<this.productNameList.size(); i++){
-                if(productName.equals(this.productNameList.get(i).getText())){
-                    this.productNameList.get(i).click();
-                    ExtentReport.pass("Clicking on product " + productName + " done");
-                }
-            }
-        } catch (Exception e) {
-            ExtentReport.fail("Clicking on product " + productName + " failed");
-        }
+        searchAndClick(this.productNameList, productName);
     }
 
     public void clickOnNavigationLink(String linkName){
-        try {
-            for(int i=0; i<this.navigationLinkList.size(); i++){
-                if(linkName.equals(this.navigationLinkList.get(i).getText())){
-                    this.navigationLinkList.get(i).click();
-                    ExtentReport.pass("Clicking on navigation link " + linkName + " done");
-                }
-            }
-        } catch (Exception e) {
-            ExtentReport.fail("Clicking on navigation link " + linkName + " failed");
-        }
+        searchAndClick(this.navigationLinkList, linkName);
     }
 
     public void clickOnNavigationDropdownLink(String linkName){
-        try {
-            for(int i=0; i<this.navigationDropdownLinkList.size(); i++){
-                if(this.navigationDropdownLinkList.get(i).getText().contains(linkName)){
-                    this.navigationDropdownLinkList.get(i).click();
-                    ExtentReport.pass("Clicking on navigation dropdown link " + linkName + " done");
-                }
-            }
-        } catch (Exception e) {
-            ExtentReport.fail("Clicking on navigation dropdown link " + linkName + " failed");
-        }
+        searchAndClick(this.navigationDropdownLinkList, linkName);
     }
 
     public HomePage(WebDriver driver){
@@ -245,39 +249,28 @@ public class HomePage extends BasePage {
     }
 
     public void navigationDisplayed(){
-        try{
-            Assert.assertTrue(logo.isDisplayed());
-            Assert.assertTrue(searchInput.isDisplayed());
-            Assert.assertTrue(searchSubmitButton.isDisplayed());
-            Assert.assertTrue(shoppingBasketListButton.isDisplayed());
-            Assert.assertTrue(changeCurrencyButton.isDisplayed());
-            Assert.assertTrue(phoneContactButton.isDisplayed());
-            Assert.assertTrue(phoneNumberSpan.isDisplayed());
-            Assert.assertTrue(myAccountButton.isDisplayed());
-            Assert.assertTrue(wishListButton.isDisplayed());
-            Assert.assertTrue(shoppingBasketButton.isDisplayed());
-            Assert.assertTrue(checkoutButton.isDisplayed());
-            ExtentReport.pass("Checking visibility of navigation elements passed");
-        } catch (Exception e) {
-            ExtentReport.fail("Checking visibility of navigation elements failed");
-        }
+            this.logoDisplayed();
+            this.searchInputDisplayed();
+            this.searchSubmitButtonDisplayed();
+            this.shoppingBasketButtonDisplayed();
+            this.changeCurrencyButtonDisplayed();
+            this.phoneContactButtonDisplayed();
+            this.phoneNumberSpanDisplayed();
+            this.myAccountButtonDisplayed();
+            this.wishListButtonDisplayed();
+            this.shoppingBasketButtonDisplayed();
+            this.checkoutButtonDisplayed();
     }
 
     public void pageDisplayed(){
-        try{
-            Assert.assertTrue(this.featuredHeader.isDisplayed());
-            Assert.assertTrue(this.productList.get(0).isDisplayed());
-            Assert.assertTrue(this.productDesc.get(0).isDisplayed());
-            Assert.assertTrue(this.productAddToCart.get(0).isDisplayed());
-            Assert.assertTrue(this.productAddToWishList.get(0).isDisplayed());
-            Assert.assertTrue(this.productCompareProducts.get(0).isDisplayed());
-            Assert.assertTrue(this.productPrice.get(0).isDisplayed());
-            Assert.assertTrue(this.productTaxPrice.get(0).isDisplayed());
-            Assert.assertTrue(this.featuredCompaniesSection.isDisplayed());
-            this.navigationDisplayed();
-            ExtentReport.pass("Checking visibility of page elements passed");
-        } catch (Exception e) {
-            ExtentReport.fail("Checking visibility of page elements failed");
-        }
+        this.featuredHeaderDisplayed();
+        this.productListDisplayed();
+        this.productDescListDisplayed();
+        this.productAddToCartListDisplayed();
+        this.productAddToWishListDisplayed();
+        this.productPriceListDisplayed();
+        this.productTaxPriceListDisplayed();
+        this.featuredCompaniesSectionDisplayed();
+        this.navigationDisplayed();
     }
 }

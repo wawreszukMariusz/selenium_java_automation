@@ -9,7 +9,7 @@ import utils.ExtentReport;
 
 import java.util.List;
 
-public class SearchPage {
+public class SearchPage extends BasePage {
 
     @FindBy(className = "product-thumb")
     private List<WebElement> productList;
@@ -32,83 +32,66 @@ public class SearchPage {
     @FindBy(id = "input-search")
     private WebElement resultsSearchInput;
 
-
-    public void setResultsSearchInput(String searchPhrase){
-        try {
-            this.resultsSearchInput.sendKeys(searchPhrase);
-            ExtentReport.pass("Send keys to results search input passed");
-        } catch (Exception e) {
-            ExtentReport.fail("Send keys to results search input failed");
-        }
-    }
-
-    public void clearResultsSearchInput(){
-        try {
-            this.resultsSearchInput.clear();
-            ExtentReport.pass("Clearing results search input passed");
-        } catch (Exception e) {
-            ExtentReport.fail("Clearing results search input failed");
-        }
-    }
-
-    public void clickSearchButton(){
-        try {
-            this.searchButton.click();
-            ExtentReport.pass("Clicking on search button done");
-        } catch (Exception e) {
-            ExtentReport.fail("Clicking on search button failed");
-        }
-    }
     public SearchPage(WebDriver driver){
         PageFactory.initElements(driver, this);
     }
 
+    public void setResultsSearchInput(String searchPhrase){
+        elementSendKeys(this.resultsSearchInput, "result search input", searchPhrase);
+    }
+
+    public void clearResultsSearchInput(){
+        clearElement(this.resultsSearchInput, "results search input");
+    }
+
+    public void clickSearchButton(){
+        clickElement(this.searchButton, "search button");
+    }
+
     public void productListNotDisplayed(){
-        try {
-            Assert.assertTrue(productList.isEmpty());
-            ExtentReport.pass("Checking display of empty shopping cart text done");
-        } catch (Exception e) {
-            ExtentReport.fail("Checking display of empty shopping cart text failed");
-        }
+        elementListNotDisplayed(this.productList, "product list");
     }
 
     public void productListDisplayed(){
-        try {
-            Assert.assertTrue(productList.size()>1);
-            ExtentReport.pass("Checking display of empty shopping cart text done");
-        } catch (Exception e) {
-            ExtentReport.fail("Checking display of empty shopping cart text failed");
-        }
+        elementListNotEmpty(this.productList, "product list");
     }
 
-    public void resultsNotFoundPageDisplayed(String searchPhrase){
-        try{
-            Assert.assertTrue(categoryDropDown.isDisplayed());
-            Assert.assertTrue(searchButton.isDisplayed());
-            Assert.assertTrue(searchHeader.isDisplayed());
-            Assert.assertEquals(searchHeader.getText(), this.searchHeaderTextFormat(searchPhrase));
-            productListNotDisplayed();
+    public void categoryDropDownDisplayed(){
+        elementDisplayed(this.categoryDropDown, "category dropdown");
+    }
 
-            ExtentReport.pass("Checking visibility of results not found page elements passed");
-        } catch (AssertionError e) {
-            ExtentReport.pass("Checking visibility of results not found page elements failed");
-        }
+    public void searchButtonDisplayed(){
+        elementDisplayed(this.searchButton, "search button");
+    }
+
+    public void searchHeaderDisplayed(String searchPhrase){
+        elementDisplayed(this.searchHeader, "search header");
+        compareElements(this.searchHeader, "search header", this.searchHeaderTextFormat(searchPhrase));
+    }
+
+    public void productListViewButtonDisplayed(){
+        elementDisplayed(this.productListViewButton, "product list view button");
+    }
+
+    public void productGridViewButtonDisplayed(){
+        elementDisplayed(this.productGridViewButton, "product grid view button");
+    }
+
+
+    public void resultsNotFoundPageDisplayed(String searchPhrase){
+            this.categoryDropDownDisplayed();
+            this.searchButtonDisplayed();
+            this.searchHeaderDisplayed(searchPhrase);
+            this.productListNotDisplayed();
     }
 
     public void resultsFoundPageDisplayed(String searchPhrase){
-        try{
-            Assert.assertTrue(categoryDropDown.isDisplayed());
-            Assert.assertTrue(searchButton.isDisplayed());
-            Assert.assertTrue(searchHeader.isDisplayed());
-            Assert.assertEquals(searchHeader.getText(), this.searchHeaderTextFormat(searchPhrase));
+            this.categoryDropDownDisplayed();
+            this.searchButtonDisplayed();
+            this.searchHeaderDisplayed(searchPhrase);
             this.productListDisplayed();
-            Assert.assertTrue(productListViewButton.isDisplayed());
-            Assert.assertTrue(productGridViewButton.isDisplayed());
-
-            ExtentReport.pass("Checking visibility of results found page elements passed");
-        } catch (AssertionError e) {
-            ExtentReport.pass("Checking visibility of results found page elements failed");
-        }
+            this.productListViewButtonDisplayed();
+            this.productGridViewButtonDisplayed();
     }
 
     public String searchHeaderTextFormat(String searchPhrase){

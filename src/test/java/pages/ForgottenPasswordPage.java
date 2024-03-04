@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import utils.ExtentReport;
 
-public class ForgottenPasswordPage {
+public class ForgottenPasswordPage extends BasePage {
     @FindBy(id = "input-email")
     private WebElement emailInput;
 
@@ -22,30 +22,14 @@ public class ForgottenPasswordPage {
     }
 
     public void setEmailInput(String email){
-        try {
-            this.emailInput.sendKeys(email);
-            ExtentReport.pass("Send keys to email input passed");
-        } catch (Exception e) {
-            ExtentReport.fail("Send keys to email input failed");
-        }
+        elementSendKeys(this.emailInput, "email input", email);
     }
 
     public void clickContinueButton(){
-        try {
-            this.continueButton.click();
-            Assert.assertTrue(this.continueButton.isDisplayed());
-            ExtentReport.pass("Clicking on continue button done");
-        } catch (Exception e) {
-            ExtentReport.fail("Clicking on continue button failed");
-        }
+        clickElement(this.continueButton, "continue button");
     }
 
     public void incorrectEmailAlertDisplayed(){
-        try {
-            Assert.assertTrue(this.incorrectEmailAlert.isDisplayed());
-            ExtentReport.pass("Checking display of incorrect email alert done");
-        } catch (Exception e) {
-            ExtentReport.fail("Checking display of incorrect email alert failed");
-        }
+        elementDisplayed(this.incorrectEmailAlert, "incorrect email alert");
     }
 }

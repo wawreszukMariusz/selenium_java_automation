@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import utils.ExtentReport;
 
-public class RegisterPage {
+public class RegisterPage extends BasePage{
 
     @FindBy(id = "input-firstname")
     private WebElement firstNameInput;
@@ -74,112 +74,128 @@ public class RegisterPage {
     }
 
     public void setFirstNameInput(String firstName){
-        try {
-            this.firstNameInput.sendKeys(firstName);
-            ExtentReport.pass("Send keys to firstname input passed");
-        } catch (AssertionError e) {
-            ExtentReport.fail("Send keys to firstname input failed");
-        }
+        elementSendKeys(this.firstNameInput, "first name input", firstName);
     }
 
     public void setLastNameInput(String lastName){
-        try {
-            this.lastNameInput.sendKeys(lastName);
-            ExtentReport.pass("Send keys to lastname input passed");
-        } catch (AssertionError e) {
-            ExtentReport.fail("Send keys to lastname input failed");
-        }
+        elementSendKeys(this.lastNameInput, "last name input", lastName);
     }
 
     public void setEmailInput(String email){
-        try {
-            this.emailInput.sendKeys(email);
-            ExtentReport.pass("Send keys to email input passed");
-        } catch (AssertionError e) {
-            ExtentReport.fail("Send keys to email input failed");
-        }
+        elementSendKeys(this.emailInput, "email input", email);
     }
 
     public void setPhoneInput(String phone){
-        try {
-            this.phoneInput.sendKeys(phone);
-            ExtentReport.pass("Send keys to phone input passed");
-        } catch (AssertionError e) {
-            ExtentReport.fail("Send keys to phone input failed");
-        }
+        elementSendKeys(this.phoneInput, "phone input", phone);
     }
 
     public void setPasswordInput(String password){
-        try {
-            this.passwordInput.sendKeys(password);
-            ExtentReport.pass("Send keys to password input passed");
-        } catch (Exception e) {
-            ExtentReport.fail("Send keys to password input failed");
-        }
+        elementSendKeys(this.passwordInput, "password input", password);
     }
 
     public void setConfirmPasswordInput(String password){
-        try {
-            this.confirmPasswordInput.sendKeys(password);
-            ExtentReport.pass("Send keys to confirm password input passed");
-        } catch (Exception e) {
-            ExtentReport.fail("Send keys to confirm password input failed");
-        }
+        elementSendKeys(this.confirmPasswordInput, "confirm password input", password);
     }
 
     public void clickPrivacyPolicyCheckbox(){
-        try {
-            this.privacyPolicyCheckBox.click();
-            ExtentReport.pass("Clicking on privacy policy checkbox done");
-        } catch (Exception e) {
-            ExtentReport.fail("Clicking on privacy policy checkbox failed");
-        }
+        clickElement(this.privacyPolicyCheckBox, "privacy policy checkbox");
     }
 
     public void clickSubmitButton(){
-        try {
-            this.submitButton.click();
-            ExtentReport.pass("Clicking on submit button done");
-        } catch (Exception e) {
-            ExtentReport.fail("Clicking on submit button failed");
-        }
+        clickElement(this.submitButton, "submit button");
+    }
+
+    public void firstNameInputDisplayed(){
+        elementDisplayed(this.firstNameInput, "first name input");
+    }
+
+    public void lastNameInputDisplayed(){
+        elementDisplayed(this.lastNameInput, "last name input");
+    }
+
+    public void emailInputDisplayed(){
+        elementDisplayed(this.emailInput, "email input");
+    }
+
+    public void phoneInputDisplayed(){
+        elementDisplayed(this.phoneInput, "phone input");
+    }
+
+    public void passwordInputDisplayed(){
+        elementDisplayed(this.passwordInput, "password input");
+    }
+
+    public void confirmPasswordInputDisplayed(){
+        elementDisplayed(this.confirmPasswordInput, "confirm password input");
+    }
+
+    public void newsletterNoRadioDisplayed(){
+        elementDisplayed(this.newsletterNoRadio, "newsletter no radio");
+    }
+
+    public void privacyPolicyCheckBoxDisplayed(){
+        elementDisplayed(this.privacyPolicyCheckBox, "privacy policy checkbox");
+    }
+
+    public void submitButtonDisplayed(){
+        elementDisplayed(this.submitButton, "submit button");
+    }
+
+    public void successBreadcrumbDisplayed(){
+        elementDisplayed(this.successBreadcrumb, "success breadcrumb");
+    }
+
+    public void continueButtonDisplayed(){
+        elementDisplayed(this.continueButton, "continue button");
+    }
+
+    public void accountHeaderDisplayed(){
+        elementDisplayed(this.accountHeader, "account header");
+    }
+
+    public void emptyPrivacyPolicyAlertDisplayed(){
+        elementDisplayed(this.emptyPrivacyPolicyAlert, "empty privacy policy alert");
+    }
+
+    public void firstNameInputAlertDisplayed(){
+        elementDisplayed(this.firstNameInputAlert, "first name input alert");
+    }
+
+    public void lastNameInputAlertDisplayed(){
+        elementDisplayed(this.lastNameInputAlert, "last name input alert");
+    }
+
+    public void emailInputAlertDisplayed(){
+        elementDisplayed(this.emailInputAlert, "email input alert");
+    }
+
+    public void phoneInputAlertDisplayed(){
+        elementDisplayed(this.phoneInputAlert, "phone input alert");
+    }
+
+    public void passwordInputAlertDisplayed(){
+        elementDisplayed(this.passwordInputAlert, "password input alert");
     }
 
     public void existingEmailAlertDisplayed(){
-        try {
-            Assert.assertTrue(this.existingEmailAlert.isDisplayed());
-            ExtentReport.pass("Checking display of existing email alert done");
-        } catch (Exception e) {
-            ExtentReport.fail("Checking display of existing email alert failed");
-        }
+        elementDisplayed(this.existingEmailAlert, "existing email alert");
     }
 
-    public void pageDisplayed(){
-        try {
-            Assert.assertTrue(this.firstNameInput.isDisplayed());
-            Assert.assertTrue(this.lastNameInput.isDisplayed());
-            Assert.assertTrue(this.emailInput.isDisplayed());
-            Assert.assertTrue(this.phoneInput.isDisplayed());
-            Assert.assertTrue(this.passwordInput.isDisplayed());
-            Assert.assertTrue(this.confirmPasswordInput.isDisplayed());
-            Assert.assertTrue(this.newsletterNoRadio.isDisplayed());
-            Assert.assertTrue(this.privacyPolicyCheckBox.isDisplayed());
-            Assert.assertTrue(this.submitButton.isDisplayed());
-            ExtentReport.pass("Checking visibility of page elements passed");
-        } catch (Exception e) {
-            ExtentReport.pass("Checking visibility of page elements failed");
-        }
+    public void pageDisplayed() {
+        this.firstNameInputDisplayed();
+        this.lastNameInputDisplayed();
+        this.emailInputDisplayed();
+        this.phoneInputDisplayed();
+        this.passwordInputDisplayed();
+        this.newsletterNoRadioDisplayed();
+        this.privacyPolicyCheckBoxDisplayed();
+        this.submitButtonDisplayed();
     }
 
     public void successRegistrationPageDisplayed(){
-        try {
-            Assert.assertTrue(this.successBreadcrumb.isDisplayed());
-            Assert.assertTrue(this.continueButton.isDisplayed());
-            Assert.assertTrue(this.accountHeader.isDisplayed());
-            ExtentReport.pass("Checking visibility of success registration page elements passed");
-        } catch (Exception e) {
-            ExtentReport.pass("Checking visibility of success registration page elements failed");
-        }
+            this.successBreadcrumbDisplayed();
+            this.continueButtonDisplayed();
+            this.accountHeaderDisplayed();
     }
 
     public void fillRegisterForm(String email){
@@ -194,16 +210,11 @@ public class RegisterPage {
     }
 
     public void checkEmptyRegisterFormAlerts(){
-        try {
-            Assert.assertTrue(this.emptyPrivacyPolicyAlert.isDisplayed());
-            Assert.assertTrue(this.firstNameInputAlert.isDisplayed());
-            Assert.assertTrue(this.lastNameInputAlert.isDisplayed());
-            Assert.assertTrue(this.emailInputAlert.isDisplayed());
-            Assert.assertTrue(this.phoneInputAlert.isDisplayed());
-            Assert.assertTrue(this.passwordInputAlert.isDisplayed());
-            ExtentReport.pass("Checking empty register form alerts passed");
-        } catch (Exception e) {
-            ExtentReport.pass("Checking empty register form alerts failed");
-        }
+        this.emptyPrivacyPolicyAlertDisplayed();
+        this.firstNameInputAlertDisplayed();
+        this.lastNameInputAlertDisplayed();
+        this.emailInputAlertDisplayed();
+        this.phoneInputAlertDisplayed();
+        this.passwordInputAlertDisplayed();
     }
 }

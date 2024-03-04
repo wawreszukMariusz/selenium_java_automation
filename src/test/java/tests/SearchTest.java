@@ -63,7 +63,7 @@ public class SearchTest extends BaseTest{
         searchPage.clearResultsSearchInput();
         searchPage.setResultsSearchInput("test");
         searchPage.clickSearchButton();
-        searchPage.resultsFoundPageDisplayed("test");
+        searchPage.resultsNotFoundPageDisplayed("test");
     }
 
 }
