@@ -10,6 +10,7 @@ public class PropertiesLoader {
 
     public static String loadProperty(String propertyName) {
         InputStream inputStream = null;
+
         try {
             inputStream = new FileInputStream("src/test/resources/config.properties");
         } catch (FileNotFoundException e) {
